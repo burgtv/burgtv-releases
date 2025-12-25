@@ -30,14 +30,14 @@
         }
 
         .logo {
-            width: 280px;
+            width: 120px;
             height: auto;
-            margin-bottom: 40px;
-            filter: drop-shadow(0 0 30px rgba(124, 77, 255, 0.3));
+            margin-bottom: 30px;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            font-weight: 700;
             margin-bottom: 10px;
             background: linear-gradient(90deg, #fff, #7C4DFF);
             -webkit-background-clip: text;
@@ -46,8 +46,8 @@
         }
 
         .version {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
             margin-bottom: 40px;
         }
 
@@ -58,7 +58,7 @@
             background: linear-gradient(135deg, #7C4DFF 0%, #5C3DCC 100%);
             color: white;
             text-decoration: none;
-            padding: 18px 48px;
+            padding: 18px 50px;
             border-radius: 50px;
             font-size: 1.2rem;
             font-weight: 600;
@@ -78,31 +78,8 @@
 
         .info {
             margin-top: 50px;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .features {
-            margin-top: 40px;
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-        }
-
-        .feature svg {
-            color: #4CAF50;
-            width: 20px;
-            height: 20px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -110,41 +87,16 @@
     <div class="container">
         <img src="logo.png" alt="BurgTV" class="logo">
 
-        <h1>Scarica BurgTV</h1>
-        <p class="version">Versione 1.0.2 per Android TV / Fire TV</p>
+        <p class="version">Version 1.0.3</p>
 
-        <a href="https://github.com/bushimusa88-coder/burgtv-releases/releases/latest/download/burgtv.apk" class="download-btn">
+        <a href="https://github.com/burgtv/burgtv-releases/releases/latest/download/app-release.apk" class="download-btn">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
-            Scarica APK
+            Download APK
         </a>
 
-        <div class="features">
-            <div class="feature">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                TV Live
-            </div>
-            <div class="feature">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                Film & Serie
-            </div>
-            <div class="feature">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                EPG Integrato
-            </div>
-        </div>
-
-        <p class="info">
-            Compatibile con Android TV, Amazon Fire TV Stick,<br>
-            Chromecast con Google TV e dispositivi Android 5.0+
-        </p>
+        <p class="info">For Amazon Fire TV Stick</p>
     </div>
 </body>
 </html>
