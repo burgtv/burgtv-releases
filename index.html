@@ -81,15 +81,22 @@
             color: rgba(255, 255, 255, 0.4);
             font-size: 0.85rem;
         }
+
+        .changelog {
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="logo.png" alt="BurgTV" class="logo">
 
-        <p class="version">Version 1.0.4</p>
+        <p class="version" id="version">Version ...</p>
 
-        <a href="https://github.com/burgtv/burgtv-releases/releases/latest/download/app-release.apk" class="download-btn">
+        <a id="download-link" href="https://github.com/burgtv/burgtv-releases/releases/latest/download/app-release.apk" class="download-btn">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
@@ -97,6 +104,23 @@
         </a>
 
         <p class="info">For Amazon Fire TV Stick</p>
+        <p class="changelog" id="changelog"></p>
     </div>
+
+    <script>
+        // Fetch version info from version.json
+        fetch('version.json?t=' + Date.now())
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('version').textContent = 'Version ' + data.version_name;
+                document.getElementById('download-link').href = data.download_url;
+                if (data.changelog) {
+                    document.getElementById('changelog').textContent = data.changelog;
+                }
+            })
+            .catch(err => {
+                document.getElementById('version').textContent = 'Version 1.0.4';
+            });
+    </script>
 </body>
 </html>
