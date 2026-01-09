@@ -2,7 +2,7 @@
   "version_code": 12,
   "version_name": "1.0.12",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.12/burgtv-1.0.12-release.apk",
-  "changelog": "## What's New in v1.0.12  ### Fix Series TV - Play from Beginning - Button now works correctly - Loads seasons/episodes from database if needed - Resets progress and opens S1:E1  ### Fix Sport -> Dash",
+  "changelog": "## What's New in v1.0.12\n\n- Fix Series TV: 'Play from Beginning' button now works\n- Fix Sport -> Dashboard: fixed empty/dirty screen",
   "mandatory": false,
   "min_version_code": 1
 }
