@@ -1,8 +1,8 @@
 {
-  "version_code": 15,
-  "version_name": "1.0.15",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.15/burgtv-1.0.15-release.apk",
-  "changelog": "## What's New in v1.0.15\n\n- Fix: Playlist update now refreshes UI after completion\n- Fix: Data sync simplified\n- Fix: Serie TV backdrop shows correct TMDB image",
+  "version_code": 16,
+  "version_name": "1.0.16",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.16/burgtv-1.0.16-release.apk",
+  "changelog": "## What's New in v1.0.16  - Fix: Child profile now hides categories with only adult content - Fix: Avatar updates correctly when switching profiles - Fix: Improved category circular scrolling ",
   "mandatory": false,
   "min_version_code": 1
 }
