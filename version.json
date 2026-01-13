@@ -1,8 +1,8 @@
 {
-  "version_code": 26,
-  "version_name": "1.0.26",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.26/burgtv-1.0.26-release.apk",
-  "changelog": "## Changes in v1.0.26  ### Bug Fixes - Fixed download progress not updating during app update  ### Previous (v1.0.25) - Fixed movie categories not appearing in group management - Fixed adult categorie",
+  "version_code": 27,
+  "version_name": "1.0.27",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.27/burgtv-1.0.27-release.apk",
+  "changelog": "## Changes in v1.0.27\n\n### Bug Fixes\n- Fixed app update download not working on Fire TV (direct HTTP download with redirect support)\n\n### Previous fixes\n- Fixed movie categories not appearing in group management\n- Fixed adult categories visible to Kids profile in group management\n- Fixed navigation getting stuck after adding/removing favorites\n- Fixed EPG dialog appearing when double-clicking right on movies/series\n- Fixed EPG overlay appearing on dashboard instead of only in fullscreen",
   "mandatory": false,
   "min_version_code": 1
 }
