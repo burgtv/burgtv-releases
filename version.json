@@ -1,8 +1,8 @@
 {
-  "version_code": 24,
-  "version_name": "1.0.24",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.24/burgtv-1.0.24-release.apk",
-  "changelog": "## Changes in v1.0.24  ### Bug Fixes - Fixed TV categories showing empty adult categories - Fixed backdrop getting stuck when scrolling fast - Fixed pinned categories not updating on profile switch ",
+  "version_code": 25,
+  "version_name": "1.0.25",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.25/burgtv-1.0.25-release.apk",
+  "changelog": "## Changes in v1.0.25\n\n### Bug Fixes\n- Fixed movie categories not appearing in group management (genre parsing)\n- Fixed adult categories visible to Kids profile in group management\n- Fixed navigation getting stuck after adding/removing favorites\n- Fixed EPG dialog appearing when double-clicking right on movies/series\n- Fixed EPG overlay appearing on dashboard instead of only in fullscreen\n- Fixed pinned categories not updating on profile switch (from v1.0.24)",
   "mandatory": false,
   "min_version_code": 1
 }
