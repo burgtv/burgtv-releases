@@ -2,7 +2,7 @@
   "version_code": 35,
   "version_name": "1.0.35",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.35/burgtv-1.0.35-release.apk",
-  "changelog": "## Changes in v1.0.35\n\n### Bug Fixes (Sport Section)\n- Fixed channel number and UP/DOWN navigation when opening channels from Sport section\n- Channel now opens exactly like TV section (correct number, correct navigation)\n- Channels are loaded from database before fullscreen for accurate positioning\n\n### Diagnostics\n- Added startup logging to diagnose dark screen issue after app update\n\n### Previous fixes\n- v1.0.33: Fixed focus restoration in Search section",
+  "changelog": "## Changes in v1.0.35  ### Bug Fixes (Sport Section) - Fixed channel number and UP/DOWN navigation when opening channels from Sport section - Channel now opens exactly like TV section (correct number,",
   "mandatory": false,
   "min_version_code": 1
 }
