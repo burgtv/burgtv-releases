@@ -2,7 +2,7 @@
   "version_code": 32,
   "version_name": "1.0.32",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.32/burgtv-1.0.32-release.apk",
-  "changelog": "## Changes in v1.0.32\n\n### Bug Fixes (Search)\n- Fixed focus disappearing when returning from player in Search section (now restores to last selected poster)\n\n### Previous fixes (v1.0.31)\n- Fixed continue watching progress in TV Guide Film/Serie sections\n- Fixed focus lost when dismissing dialogs in TV Guide",
+  "changelog": "## Changes in v1.0.32  ### Bug Fixes (Search) - Fixed focus disappearing when returning from player in Search section (now restores to last selected poster)  ### Previous fixes (v1.0.31) - Fixed conti",
   "mandatory": false,
   "min_version_code": 1
 }
