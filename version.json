@@ -1,8 +1,8 @@
 {
-  "version_code": 38,
-  "version_name": "1.0.38",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.38/burgtv-1.0.38-release.apk",
-  "changelog": "## Changes in v1.0.38  ### Smart Sync with Raw Hash Check - **NEW:** Compares MD5 hash of playlist BEFORE parsing - If unchanged: shows Nessuna modifica in ~3 seconds (instead of 30+) - If changed: pe",
+  "version_code": 39,
+  "version_name": "1.0.39",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.39/burgtv-1.0.39-release.apk",
+  "changelog": "## Changes in v1.0.39\n\n### Sport Section - Improved\n- FIXED: No more loading screen when opening channel from Sport\n- FIXED: Player starts immediately, channels load in background\n- FIXED: Dashboard panels restored correctly when returning from Sport\n\n### Playlist Refresh - Now Real!\n- FIXED: 'Aggiorna' in Settings > Playlist now does REAL sync\n- Uses same smart hash check as Data Sync\n- Shows 'Nessuna modifica' if unchanged\n\n### Smart Sync Reminder\n- FIRST sync after update will be slow (new hash format)\n- SUBSEQUENT syncs will be fast if unchanged (~3 seconds)\n\n### Previous fixes\n- v1.0.38: Smart Sync with MD5 hash check\n- v1.0.37: Sport fullscreen navigation",
   "mandatory": false,
   "min_version_code": 1
 }
