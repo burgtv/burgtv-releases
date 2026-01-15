@@ -2,7 +2,7 @@
   "version_code": 37,
   "version_name": "1.0.37",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.37/burgtv-1.0.37-release.apk",
-  "changelog": "## Changes in v1.0.37\n\n### Sport Section Fullscreen Fix\n- Fixed: Channels now open directly in fullscreen from Sport section (no preview)\n- Fixed: Channel switching UP/DOWN uses complete TV channel list\n- Fixed: Back from fullscreen returns to Sport with focus restored\n- Fixed: No preview when entering or exiting fullscreen from Sport\n\n### Delta Sync (unchanged - already working)\n- Hash-based change detection (instant if no changes)\n- Only updates added/removed/modified channels\n- Preserves favorites and watch progress\n\n### Previous fixes\n- v1.0.36: Sync performance improvements",
+  "changelog": "## Changes in v1.0.37  ### Sport Section Fullscreen Fix - **Fixed:** Channels now open directly in fullscreen from Sport section (no preview) - **Fixed:** Channel switching UP/DOWN uses complete TV ch",
   "mandatory": false,
   "min_version_code": 1
 }
