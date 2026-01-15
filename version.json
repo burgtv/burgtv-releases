@@ -1,8 +1,8 @@
 {
-  "version_code": 40,
-  "version_name": "1.0.40",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.40/burgtv-1.0.40-release.apk",
-  "changelog": "## Changes in v1.0.40  ### Sport Section - Channel Switching Fixed - **FIXED:** Channels now show correct numbers in fullscreen EPG - **FIXED:** Channel switching works correctly (next/previous) - **F",
+  "version_code": 41,
+  "version_name": "1.0.41",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.41/burgtv-1.0.41-release.apk",
+  "changelog": "## Changes in v1.0.41\n\n### Sport Section - UI Flow Fixed\n- FIXED: No more preview appearing on left side\n- FIXED: Loading overlay shown during channel load\n- FIXED: Preview starts AND goes fullscreen together\n- FIXED: Channels load correctly before fullscreen\n- Channel switching now works properly\n\n### Previous fixes\n- v1.0.40: Channel numbering fix (partial)\n- v1.0.38: Smart Sync with MD5 hash check\n- v1.0.37: Sport fullscreen navigation",
   "mandatory": false,
   "min_version_code": 1
 }
