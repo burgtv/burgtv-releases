@@ -2,7 +2,7 @@
   "version_code": 42,
   "version_name": "1.0.42",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.42/burgtv-1.0.42-release.apk",
-  "changelog": "## Changes in v1.0.42  ### Smart Sync - Fixed! - FIXED: Sync now correctly saves content hash - FIXED: Second sync onwards skips if no changes - FIXED: 'Aggiorna' in Playlist settings works properly -",
+  "changelog": "HTTP HEAD check for instant sync detection. Normalized hash on sorted URLs. ",
   "mandatory": false,
   "min_version_code": 1
 }
