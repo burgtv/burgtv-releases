@@ -2,7 +2,7 @@
   "version_code": 38,
   "version_name": "1.0.38",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.38/burgtv-1.0.38-release.apk",
-  "changelog": "## Changes in v1.0.38\n\n### Smart Sync with Raw Hash Check\n- NEW: Compares MD5 hash of playlist BEFORE parsing\n- If unchanged: shows \"Nessuna modifica\" in ~3 seconds (instead of 30+)\n- If changed: performs delta sync as usual\n- Applies to both manual sync and auto-update\n\n### Sport Section Fixes\n- Fixed: Black loading overlay during transition (no more dashboard flash)\n- Fixed: Preview no longer appears when returning from Sport section\n- Fixed: Proper cleanup of sport flags when exiting fullscreen\n- Fixed: Panels restored correctly when backing from TvGuide\n\n### Previous fixes\n- v1.0.37: Sport fullscreen navigation\n- v1.0.36: Sync performance improvements",
+  "changelog": "## Changes in v1.0.38  ### Smart Sync with Raw Hash Check - **NEW:** Compares MD5 hash of playlist BEFORE parsing - If unchanged: shows Nessuna modifica in ~3 seconds (instead of 30+) - If changed: pe",
   "mandatory": false,
   "min_version_code": 1
 }
