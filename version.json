@@ -1,8 +1,8 @@
 {
-  "version_code": 42,
-  "version_name": "1.0.42",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.42/burgtv-1.0.42-release.apk",
-  "changelog": "HTTP HEAD check for instant sync detection. Normalized hash on sorted URLs. ",
+  "version_code": 46,
+  "version_name": "1.0.46",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.46/app-release.apk",
+  "changelog": "## 🔧 BurgTV v1.0.46 - Soft Delete & Query Optimization  ### ✨ Nuove Funzionalità  #### Soft Delete Pattern - Canali, Film e Serie vengono **marcati come eliminati** invece di essere rimossi - I ",
   "mandatory": false,
   "min_version_code": 1
 }
