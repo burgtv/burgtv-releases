@@ -2,7 +2,7 @@
   "version_code": 47,
   "version_name": "1.0.47",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.47/burgtv-1.0.47-release.apk",
-  "changelog": "## Fix v1.0.47 - Crash Catchup  ### Correzioni: - Fix crash quando si clicca su programmi catchup in release build - Aggiunte regole ProGuard per classi catchup - Fix requireContext() in coroutine dop",
+  "changelog": "## BurgTV v1.0.47 - Fix Crash Catchup\n\n### Correzioni\n- Fix crash quando si clicca su programmi catchup in release build\n- Aggiunte regole ProGuard per classi catchup\n- Fix requireContext() in coroutine dopo dialog dismiss",
   "mandatory": false,
   "min_version_code": 1
 }
