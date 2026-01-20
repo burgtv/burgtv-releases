@@ -1,8 +1,7 @@
 {
-  "version_code": 48,
-  "version_name": "1.0.48",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.48/burgtv-1.0.48-release.apk",
-  "changelog": "## Changes in v1.0.48\n\n### Bug Fixes\n- Fixed sport channel navigation (UP/DOWN now navigates between match channels)\n- Fixed sport focus restoration when exiting fullscreen\n- Fixed search focus not returning to selected item on back\n- Fixed episodes page focus disappearing when navigating from search\n- Fixed TMDB backdrop getting stuck when switching between Film/Series tabs\n- Fixed intermittent black preview screen with audio\n\n### Performance\n- Optimized episodes page loading (batch database queries instead of N queries)\n\n### Previous (v1.0.47)\n- Fixed catchup crash in release build\n- Fixed buffer settings for catchup playback",
-  "mandatory": false,
-  "min_version_code": 1
+  "versionCode": 49,
+  "versionName": "1.0.49",
+  "apkUrl": "https://raw.githubusercontent.com/burgtv/burgtv-releases/main/burgtv-1.0.49-release.apk",
+  "releaseNotes": "v1.0.49:\n- Dialog per aggiunta/rimozione preferiti (longpress OK)\n- Fix sincronizzazione cartelle personalizzate\n- Traduzioni complete in 5 lingue\n- Miglioramenti generali",
+  "mandatory": false
 }
