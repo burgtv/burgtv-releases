@@ -1,8 +1,8 @@
 {
-  "version_code": 54,
-  "version_name": "1.0.54",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.54/burgtv-1.0.54-release.apk",
-  "changelog": "Dynamic FocusRequester for unlimited channel lists (22K+), channel ordering fix, complete 'All channels' loading",
+  "version_code": 55,
+  "version_name": "1.0.55",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.55/burgtv-1.0.55-release.apk",
+  "changelog": "Lista canali con FocusRequester dinamici, wrap-around migliorato, focus centrato durante scroll, fix caricamento tutti i canali",
   "mandatory": false,
   "min_version_code": 1
 }
