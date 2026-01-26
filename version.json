@@ -2,7 +2,7 @@
   "version_code": 60,
   "version_name": "1.0.60",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.60/burgtv-1.0.60-release.apk",
-  "changelog": "Added sort panel for Movies/Series with slide animation, intelligent buffering for VOD content, fixed backdrop not updating after sort change, fixed focus issues in sort dialog",
+  "changelog": "## What's New  ### Sort Panel for Movies & Series - New slide-in panel from right side for sorting content - Sort options: Playlist order, By name (A-Z), By rating, By date added - TV D-PAD navigation",
   "mandatory": false,
   "min_version_code": 1
 }
