@@ -1,8 +1,8 @@
 {
-  "version_code": 61,
-  "version_name": "1.0.61",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.61/burgtv-1.0.61-release.apk",
-  "changelog": "Added sort panel for Movies/Series, intelligent buffering for VOD, fixed backdrop update on sort change, fixed search navigation returning to poster grid",
+  "version_code": 62,
+  "version_name": "1.0.62",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.62/burgtv-1.0.62-release.apk",
+  "changelog": "## Fix v1.0.62  ### Bug Fix: Desincronizzazione Preview Categorie Film/Serie - **Fix principale**: Reset scroll griglia a posizione 0 quando cambia categoria - Risolto problema dove i poster mostravan",
   "mandatory": false,
   "min_version_code": 1
 }
