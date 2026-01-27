@@ -1,8 +1,8 @@
 {
-  "version_code": 63,
-  "version_name": "1.0.63",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.63/burgtv-1.0.63-release.apk",
-  "changelog": "## Whats New in v1.0.63  ### Fix - **Player Episodes List**: Removed the 10-episode limit in the player preview bar. Now all episodes of the current season are displayed, allowing users to navigate th",
+  "version_code": 64,
+  "version_name": "1.0.64",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.64/burgtv-1.0.64-release.apk",
+  "changelog": "## Whats New in v1.0.64  ### Fix - **Player Episodes Navigation**: Fixed focus navigation limit that stopped at episode 10. Now users can navigate through ALL episodes of the current season using the ",
   "mandatory": false,
   "min_version_code": 1
 }
