@@ -2,7 +2,7 @@
   "version_code": 62,
   "version_name": "1.0.62",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.62/burgtv-1.0.62-release.apk",
-  "changelog": "## Fix v1.0.62  ### Bug Fix: Desincronizzazione Preview Categorie Film/Serie - **Fix principale**: Reset scroll griglia a posizione 0 quando cambia categoria - Risolto problema dove i poster mostravan",
+  "changelog": "Fix desincronizzazione preview categorie Film/Serie - reset scroll griglia quando cambia categoria",
   "mandatory": false,
   "min_version_code": 1
 }
