@@ -1,8 +1,8 @@
 {
-  "version_code": 64,
-  "version_name": "1.0.64",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.64/burgtv-1.0.64-release.apk",
-  "changelog": "## Whats New in v1.0.64  ### Fix - **Player Episodes Navigation**: Fixed focus navigation limit that stopped at episode 10. Now users can navigate through ALL episodes of the current season using the ",
+  "version_code": 65,
+  "version_name": "1.0.65",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.65/burgtv-1.0.65-release.apk",
+  "changelog": "## What's New in v1.0.65  ### Features - **Profile-specific sorting**: Movie and Series sort preferences are now saved independently for each profile. Each user profile can have its own preferred sort",
   "mandatory": false,
   "min_version_code": 1
 }
