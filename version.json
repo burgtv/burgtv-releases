@@ -1,8 +1,8 @@
 {
-  "version_code": 66,
-  "version_name": "1.0.66",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.66/burgtv-1.0.66-release.apk",
-  "changelog": "## What's New in v1.0.66\n\n### Features\n- Profile-specific sorting: Movie and Series sort preferences saved per profile\n\n### Improvements\n- Circular category navigation in Content Management\n- Smoother category scrolling\n- Catch-up player optimization\n- Enhanced security with improved code obfuscation\n\n### Bug Fixes\n- Profile sorting now reloads correctly on switch\n- Scrollbar position adjusted in Manage Groups",
-  "mandatory": false,
+  "version_code": 67,
+  "version_name": "1.0.67",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.67/burgtv-1.0.67-release.apk",
+  "changelog": "## v1.0.67\n\n### Bug Fixes\n- CRITICAL: Fixed TMDB metadata not loading\n- CRITICAL: Fixed TV Guide section\n- ProGuard fix for API data classes\n\n### Security\n- Enhanced code obfuscation",
+  "mandatory": true,
   "min_version_code": 1
 }
