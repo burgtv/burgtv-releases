@@ -1,8 +1,8 @@
 {
-  "version_code": 68,
-  "version_name": "1.0.68",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.68/burgtv-1.0.68-release.apk",
-  "changelog": "## v1.0.68 - Security Update\n\n- String encryption per API keys\n- Security Manager con controlli runtime\n- Fix TMDB e TV Guide\n- Obfuscazione codice migliorata",
+  "version_code": 69,
+  "version_name": "1.0.69",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.69/burgtv-1.0.69-release.apk",
+  "changelog": "## What's New in v1.0.69  ### Security (Maximum Protection) - **XOR Encryption**: All API keys and sensitive URLs now XOR encrypted - **Runtime Key Generation**: Encryption keys generated at runtime f",
   "mandatory": false,
   "min_version_code": 1
 }
