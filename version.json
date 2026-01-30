@@ -2,7 +2,7 @@
   "version_code": 69,
   "version_name": "1.0.69",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.69/burgtv-1.0.69-release.apk",
-  "changelog": "## What's New in v1.0.69  ### Security (Maximum Protection) - **XOR Encryption**: All API keys and sensitive URLs now XOR encrypted - **Runtime Key Generation**: Encryption keys generated at runtime f",
+  "changelog": "## v1.0.69 - Maximum Security\n\n- XOR encryption per API keys\n- Runtime key generation\n- Security Manager attivo\n- Fix TMDB e TV Guide",
   "mandatory": false,
   "min_version_code": 1
 }
