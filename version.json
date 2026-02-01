@@ -1,8 +1,8 @@
 {
-  "version_code": 74,
-  "version_name": "1.0.74",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.74/burgtv-1.0.74-release.apk",
-  "changelog": "Fixed Italian translation issues: Season names now display in app language, added missing English translations",
+  "version_code": 75,
+  "version_name": "1.0.75",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.75/burgtv-1.0.75-release.apk",
+  "changelog": "## BurgTV v1.0.75 - API Cost Optimization  ### Major Changes - **99.7% reduction in Supabase Edge Function invocations** - Direct database reads via Supabase RPC functions - Local Room database cachin",
   "mandatory": false,
   "min_version_code": 1
 }
