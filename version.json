@@ -1,8 +1,8 @@
 {
-  "version_code": 73,
-  "version_name": "1.0.73",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.73/burgtv-1.0.73-release.apk",
-  "changelog": "",
+  "version_code": 74,
+  "version_name": "1.0.74",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.74/burgtv-1.0.74-release.apk",
+  "changelog": "Fixed Italian translation issues: Season names now display in app language, added missing English translations",
   "mandatory": false,
   "min_version_code": 1
 }
