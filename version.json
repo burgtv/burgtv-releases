@@ -2,7 +2,7 @@
   "version_code": 78,
   "version_name": "1.0.78",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.78/burgtv-1.0.78-release.apk",
-  "changelog": "v1.0.78: Fix Channel Swap tracking, Mini TV Guide performance, Catchup exit black screen, Fullscreen overlay cleanup",
+  "changelog": "## BurgTV v1.0.78  ### Bug Fixes - **Channel Swap**: Fixed tracking of previous channel during fullscreen UP/DOWN navigation - **Mini TV Guide Performance**: Added 300ms debounce and DayOffsetCalculat",
   "mandatory": false,
   "min_version_code": 1
 }
