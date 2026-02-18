@@ -2,7 +2,7 @@
   "version_code": 91,
   "version_name": "1.0.91",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.91/burgtv-1.0.91-release.apk",
-  "changelog": "Fix favorites lost after playlist sync (URL-based storage), mini guide Preferiti category + star icon, mini guide freeze on Fire TV (View-level key dispatch), category persistence after fullscreen",
+  "changelog": "## BurgTV v1.0.91  ### Bug Fixes - **Favorites preserved after playlist sync**: Favorites are now stored by content URL/series ID instead of volatile numeric IDs. Favorites survive playlist re-imports",
   "mandatory": false,
   "min_version_code": 1
 }
