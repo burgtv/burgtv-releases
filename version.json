@@ -1,8 +1,8 @@
 {
-  "version_code": 96,
-  "version_name": "1.0.96",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.96/burgtv-1.0.96-release.apk",
-  "changelog": "## BurgTV v1.0.96  ### Bug Fixes - **Fix: Overlay stuck on dashboard** after exiting fullscreen player (race condition in animation callbacks) - **Fix: Wrong series episodes playing** when navigating ",
+  "version_code": 97,
+  "version_name": "1.0.97",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.97/burgtv-1.0.97-release.apk",
+  "changelog": "## BurgTV v1.0.97\n\n### Bug Fixes\n- Fix: Profiles 'Show on Start' now shows toggle instead of arrow\n- Fix: EPG/Remote selection dialogs show checkmark instead of X artifact\n- Fix: About BurgTV scroll/focus - no more jump to bottom on open\n- Fix: About BurgTV shows actual logo instead of placeholder\n- Fix: Licenses dialog now includes Apache License URL\n- Fix: Channel switch no longer exits with premature timeout (playerErrorRetryCount reset)\n- Fix: Storage Backup/Restore buttons now show 'Coming Soon' instead of fake success\n- Fix: 'Channel locked/unlocked' toast translated in all 14 languages\n\n### Improvements\n- Clock displayed in live TV fullscreen player overlay (top-right)\n- Category name displayed in live TV fullscreen overlay (top-left)\n- Top gradient bar in live TV overlay for better readability\n- Clock displayed in film/series player overlay (top-left)\n- All new strings translated in 14 languages",
   "mandatory": false,
   "min_version_code": 1
 }
