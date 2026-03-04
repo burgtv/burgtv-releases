@@ -1,8 +1,8 @@
 {
-  "version_code": 98,
-  "version_name": "1.0.98",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.98/burgtv-1.0.98-release.apk",
-  "changelog": "## BurgTV v1.0.98  ### Miglioramenti - Ordinamento categorie TV dal provider (Live Categories API) - Tema colori segue correttamente su poster Film/Serie - Chiave API-Football crittografata (XOR)  ###",
+  "version_code": 99,
+  "version_name": "1.0.99",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.0.99/burgtv-1.0.99-release.apk",
+  "changelog": "## BurgTV v1.0.99\n\n### Novità\n- Indicatori ★ (preferiti) e 🔔 (promemoria) nella lista canali e mini guida\n- Simboli ★/🔔 indipendenti per ogni profilo\n\n### Miglioramenti\n- Ordine categorie in Gestisci Gruppi allineato con dashboard (TV/Film/Serie)\n- Credenziali Supabase migrate a crittografia XOR (sicurezza migliorata)\n\n### Correzioni\n- Campana promemoria ora bianca (non gialla) e si aggiorna subito\n- Stella preferiti si aggiorna immediatamente dopo aggiunta/rimozione",
   "mandatory": false,
   "min_version_code": 1
 }
