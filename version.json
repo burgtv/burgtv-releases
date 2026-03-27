@@ -1,8 +1,8 @@
 {
-  "version_code": 114,
-  "version_name": "1.1.4",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.1.4/burgtv-1.1.4-release.apk",
-  "changelog": "v1.1.4 ",
+  "version_code": 5,
+  "version_name": "1.1.5",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.1.5/burgtv-1.1.5-release.apk",
+  "changelog": " ",
   "mandatory": false,
   "min_version_code": 1
 }
