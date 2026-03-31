@@ -26,7 +26,7 @@
 
         .container {
             text-align: center;
-            max-width: 500px;
+            max-width: 700px;
         }
 
         .logo {
@@ -45,73 +45,144 @@
             background-clip: text;
         }
 
-        .version {
+        .subtitle {
             color: rgba(255, 255, 255, 0.5);
-            font-size: 0.95rem;
-            margin-bottom: 40px;
+            font-size: 1rem;
+            margin-bottom: 50px;
+        }
+
+        .platforms {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 550px) {
+            .platforms {
+                flex-direction: row;
+                justify-content: center;
+                gap: 60px;
+            }
+        }
+
+        .platform {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .platform-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+        }
+
+        .platform-name {
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        .platform-version {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
         }
 
         .download-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             background: linear-gradient(135deg, #7C4DFF 0%, #5C3DCC 100%);
             color: white;
             text-decoration: none;
-            padding: 18px 50px;
+            padding: 14px 36px;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(124, 77, 255, 0.4);
+            box-shadow: 0 8px 30px rgba(124, 77, 255, 0.35);
         }
 
         .download-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(124, 77, 255, 0.5);
+            box-shadow: 0 12px 40px rgba(124, 77, 255, 0.5);
         }
 
         .download-btn svg {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .android-icon {
+            background: #3ddc84;
+            padding: 12px;
         }
 
         .info {
             margin-top: 50px;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
         }
-
-
     </style>
 </head>
 <body>
     <div class="container">
         <img src="logo.png" alt="BurgTV" class="logo">
+        <h1>BurgTV</h1>
+        <p class="subtitle">Scarica l'app per il tuo dispositivo</p>
 
-        <p class="version" id="version">Version ...</p>
+        <div class="platforms">
+            <!-- Fire TV Stick -->
+            <div class="platform">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Amazon_Fire_TV_logo.svg/200px-Amazon_Fire_TV_logo.svg.png" alt="Fire TV" class="platform-icon" style="background: #232f3e; padding: 10px;" onerror="this.outerHTML='<div class=\'platform-icon\' style=\'background:#ff9900;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:bold;color:#000\'>Fire TV</div>'">
+                <span class="platform-name">Fire TV Stick</span>
+                <span class="platform-version" id="tv-version">v1.1.7</span>
+                <a id="tv-download" href="https://github.com/burgtv/burgtv-releases/releases/download/v1.1.7/burgtv-1.1.7-release.apk" class="download-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Scarica APK
+                </a>
+            </div>
 
-        <a id="download-link" href="https://github.com/burgtv/burgtv-releases/releases/download/v1.1.7/burgtv-1.1.7-release.apk" class="download-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
-            Download APK
-        </a>
+            <!-- Android Mobile -->
+            <div class="platform">
+                <svg class="platform-icon android-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/>
+                </svg>
+                <span class="platform-name">Android Mobile</span>
+                <span class="platform-version" id="mobile-version">v1.0.0</span>
+                <a id="mobile-download" href="https://github.com/burgtv/burgtv-mobile-releases/releases/download/android-v1.0.0/burgtv-mobile-1.0.0-release.apk" class="download-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Scarica APK
+                </a>
+            </div>
+        </div>
 
-        <p class="info">For Amazon Fire TV Stick</p>
+        <p class="info">BurgTV non fornisce contenuti. È necessaria una playlist IPTV.</p>
     </div>
 
     <script>
-        // Fetch version info from version.json
+        // Fetch TV version
         fetch('version.json?t=' + Date.now())
-            .then(response => response.json())
+            .then(r => r.json())
             .then(data => {
-                document.getElementById('version').textContent = 'Version ' + data.version_name;
-                document.getElementById('download-link').href = data.download_url;
+                document.getElementById('tv-version').textContent = 'v' + data.version_name;
+                document.getElementById('tv-download').href = data.download_url;
             })
-            .catch(err => {
-                document.getElementById('version').textContent = 'Version 1.1.7';
-            });
+            .catch(() => {});
+
+        // Fetch Mobile version
+        fetch('https://raw.githubusercontent.com/burgtv/burgtv-mobile-releases/main/android/version.json?t=' + Date.now())
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('mobile-version').textContent = 'v' + data.version_name;
+                document.getElementById('mobile-download').href = data.download_url;
+            })
+            .catch(() => {});
     </script>
 </body>
 </html>
