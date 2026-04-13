@@ -1,8 +1,8 @@
 {
-  "version_code": 117,
-  "version_name": "1.1.7",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.1.7/burgtv-1.1.7-release.apk",
-  "changelog": " ",
+  "version_code": 8,
+  "version_name": "1.1.8",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.1.8/burgtv-1.1.8-release.apk",
+  "changelog": "## BurgTV v1.1.8 (13 Aprile 2026)  ### Migrazione Backend VPS - Backend migrato da Supabase a VPS dedicato (api.burgtv.com) - Performance migliorata con cache TMDB ottimizzata - SSL + Cloudflare DDoS ",
   "mandatory": false,
   "min_version_code": 1
 }
