@@ -1,8 +1,8 @@
 {
-  "version_code": 9,
+  "version_code": 119,
   "version_name": "1.1.9",
   "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.1.9/burgtv-1.1.9-release.apk",
-  "changelog": "## BurgTV v1.1.9 (14 Aprile 2026)  ### Migrazione Backend VPS completa - Tutto il backend su api.burgtv.com (VPS Netcup) - Auth, licenze, sync, pagamenti, realtime sport - Server Deno dedicato con ~25",
+  "changelog": " ",
   "mandatory": false,
   "min_version_code": 1
 }
