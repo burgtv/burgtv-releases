@@ -38,15 +38,20 @@
       .bv-lang-dd-opt .bv-check { width: 14px; height: 14px; opacity: 0; color: #B94A8E; flex-shrink: 0; }
       .bv-lang-dd-opt.active .bv-check { opacity: 1; }
       .bv-lang-replaced { display: none !important; }
-      /* Fallback: if dropdown was inserted next to a hidden .lang-switch, mimic its typical fixed positioning */
+      /* Fallback: when dropdown replaces a .lang-switch, force it to typical top-right floating position */
       .lang-switch.bv-lang-replaced + .bv-lang-dd {
-        position: fixed;
-        top: 1.5rem;
-        right: 1.5rem;
-        z-index: 1000;
+        position: fixed !important;
+        top: 1.5rem !important;
+        right: 1.5rem !important;
+        left: auto !important;
+        bottom: auto !important;
+        z-index: 1000 !important;
       }
       @media (max-width: 640px) {
-        .lang-switch.bv-lang-replaced + .bv-lang-dd { top: 1rem; right: 1rem; }
+        .lang-switch.bv-lang-replaced + .bv-lang-dd {
+          top: 1rem !important;
+          right: 1rem !important;
+        }
       }
     `;
     const style = document.createElement('style');
@@ -133,22 +138,24 @@
     const current = getCurrentLang(found.buttons);
     const dropdown = buildDropdown(current);
 
-    // Copy positioning from original container if it's fixed/absolute
-    const cs = window.getComputedStyle(found.container);
-    if (cs.position === 'fixed' || cs.position === 'absolute') {
-      dropdown.style.position = cs.position;
-      dropdown.style.zIndex = cs.zIndex && cs.zIndex !== 'auto' ? cs.zIndex : '1000';
-      ['top', 'right', 'bottom', 'left'].forEach(side => {
-        const v = cs[side];
-        if (v && v !== 'auto') dropdown.style[side] = v;
-      });
-    }
-
     // Insert dropdown right after the container of old buttons
     found.container.parentElement.insertBefore(dropdown, found.container.nextSibling);
 
-    // Hide the old switcher
+    // Hide the old switcher (CSS rule .lang-switch.bv-lang-replaced + .bv-lang-dd handles fixed positioning)
     found.container.classList.add('bv-lang-replaced');
+
+    // Fallback: only copy positioning via JS if original is NOT a .lang-switch (covers other markup patterns)
+    if (!found.container.classList.contains('lang-switch')) {
+      const cs = window.getComputedStyle(found.container);
+      if (cs.position === 'fixed' || cs.position === 'absolute') {
+        dropdown.style.position = cs.position;
+        dropdown.style.zIndex = cs.zIndex && cs.zIndex !== 'auto' ? cs.zIndex : '1000';
+        ['top', 'right', 'bottom', 'left'].forEach(side => {
+          const v = cs[side];
+          if (v && v !== 'auto') dropdown.style[side] = v;
+        });
+      }
+    }
 
     // Wire up dropdown
     const trigger = dropdown.querySelector('.bv-lang-dd-trigger');
