@@ -35,7 +35,8 @@
 
         /* HERO */
         .hero { text-align: center; padding: 60px 0 80px; }
-        .logo { width: 100px; height: auto; margin-bottom: 24px; }
+        .logo { width: 180px; height: auto; margin-bottom: 8px; }
+        @media (max-width: 640px) { .logo { width: 140px; } }
         h1 {
             font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 800;
@@ -281,8 +282,7 @@
         <!-- HERO -->
         <div class="hero">
             <img src="logo.png" alt="BurgTV" class="logo">
-            <h1>BurgTV</h1>
-            <p class="subtitle">Professional neutral media player for Fire TV, Android TV, and mobile. Bring your own legitimate media source.</p>
+            <p class="subtitle" style="margin-top:16px;font-size:1.2rem;max-width:680px">Professional neutral media player for Fire TV, Android TV, and mobile. Bring your own legitimate media source.</p>
         </div>
 
         <!-- DOWNLOAD -->
