@@ -87,7 +87,22 @@
     return null;
   }
 
+  function getCookie(name) {
+    const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+  function setCookie(name, value, days) {
+    const d = new Date(); d.setTime(d.getTime() + days * 86400000);
+    // Use parent domain so cookie is shared across burgtv.com, app.burgtv.com, download.burgtv.com
+    const host = location.hostname;
+    let domain = '';
+    if (host.endsWith('.burgtv.com') || host === 'burgtv.com') domain = '; Domain=.burgtv.com';
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + d.toUTCString() + '; path=/' + domain + '; SameSite=Lax';
+  }
   function getCurrentLang(buttons) {
+    // Cookie has cross-subdomain priority; then localStorage; then DOM lang; then default Italian
+    const fromCookie = getCookie('burgtv_lang');
+    if (fromCookie && /^(it|en|de|es|fr)$/.test(fromCookie)) return fromCookie;
     for (const [l, btn] of Object.entries(buttons)) {
       if (btn.classList.contains('active')) return l;
     }
@@ -173,6 +188,9 @@
         const btn = found.buttons[lang];
         if (btn) btn.click();
         setActiveInDropdown(dropdown, lang);
+        // Save in cookie for cross-subdomain persistence (burgtv.com → app.burgtv.com → download.burgtv.com)
+        setCookie('burgtv_lang', lang, 365);
+        try { localStorage.setItem('preferredLang', lang); } catch(e){}
         menu.classList.remove('open');
         trigger.setAttribute('aria-expanded', 'false');
       });
@@ -192,11 +210,13 @@
       }
     });
 
-    // Observe active class changes on old buttons to sync dropdown
+    // Observe active class changes on old buttons to sync dropdown + cookie
     const observer = new MutationObserver(() => {
       for (const [l, btn] of Object.entries(found.buttons)) {
         if (btn.classList.contains('active')) {
           setActiveInDropdown(dropdown, l);
+          // Also persist any external lang change to cross-subdomain cookie
+          if (getCookie('burgtv_lang') !== l) setCookie('burgtv_lang', l, 365);
           break;
         }
       }
@@ -204,6 +224,16 @@
     Object.values(found.buttons).forEach(btn => {
       observer.observe(btn, { attributes: true, attributeFilter: ['class'] });
     });
+
+    // On page load: if cookie has a different lang than currently active, trigger the corresponding button
+    const savedLang = getCookie('burgtv_lang');
+    if (savedLang && /^(it|en|de|es|fr)$/.test(savedLang) && savedLang !== current) {
+      const targetBtn = found.buttons[savedLang];
+      if (targetBtn) {
+        // Defer to allow the page's own setLang to be wired up first
+        setTimeout(() => targetBtn.click(), 0);
+      }
+    }
   }
 
   if (document.readyState === 'loading') {
