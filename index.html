@@ -6,6 +6,7 @@
     <title>Scarica BurgTV — Fire TV, Android TV & Mobile</title>
     <meta name="description" content="Scarica BurgTV, media player neutro per Fire TV, Android TV e dispositivi mobili. Xtream Codes, M3U, self-hosted support.">
     <link rel="icon" type="image/png" href="logo.png">
+    <script src="/assets/js/lang-dropdown.js" defer></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -32,6 +33,11 @@
         }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+        .lang-switch{position:fixed;top:1.5rem;right:1.5rem;display:flex;gap:.5rem;z-index:1000;background:var(--card);backdrop-filter:blur(10px);padding:.5rem;border-radius:12px;border:1px solid var(--border)}
+        .lang-switch button{padding:.5rem 1rem;background:transparent;color:var(--muted);border:none;border-radius:8px;cursor:pointer;font-size:.9rem;font-weight:500;transition:all .3s;font-family:inherit}
+        .lang-switch button:hover{background:rgba(255,255,255,.06);color:var(--text)}
+        .lang-switch button.active{background:var(--accent);color:#fff}
+        @media(max-width:768px){.lang-switch{top:1rem;right:1rem;padding:.4rem}.lang-switch button{padding:.4rem .8rem;font-size:.8rem}}
 
         /* HERO */
         .hero { text-align: center; padding: 60px 0 80px; }
@@ -277,12 +283,20 @@
 </head>
 <body>
 
+    <div class="lang-switch">
+        <button id="btn-it" class="active">IT</button>
+        <button id="btn-en">EN</button>
+        <button id="btn-de">DE</button>
+        <button id="btn-es">ES</button>
+        <button id="btn-fr">FR</button>
+    </div>
+
     <div class="container">
 
         <!-- HERO -->
         <div class="hero">
             <img src="logo.png" alt="BurgTV" class="logo">
-            <p class="subtitle" style="margin-top:16px;font-size:1.2rem;max-width:680px">Professional neutral media player for Fire TV, Android TV, and mobile. Bring your own legitimate media source.</p>
+            <p class="subtitle" style="margin-top:16px;font-size:1.2rem;max-width:680px" data-i18n="hero.subtitle">Professional neutral media player for Fire TV, Android TV, and mobile. Bring your own legitimate media source.</p>
         </div>
 
         <!-- DOWNLOAD -->
@@ -298,7 +312,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                         </svg>
-                        Download APK
+                        <span data-i18n="dl.btn">Download APK</span>
                     </a>
                 </div>
 
@@ -313,25 +327,25 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                         </svg>
-                        Download APK
+                        <span data-i18n="dl.btn">Download APK</span>
                     </a>
                 </div>
 
             </div>
 
-            <div class="warn">
+            <div class="warn" data-i18n="warn">
                 <strong>⚠️ Important:</strong> BurgTV is a media player only. You must provide your own legitimate media source (Xtream Codes, M3U playlist from a licensed IPTV subscription, or self-hosted Plex/Jellyfin/Emby).
             </div>
         </section>
 
         <!-- HOW TO INSTALL -->
         <section id="install">
-            <h2>How to install</h2>
-            <p class="section-intro">Simple step-by-step guides for each platform.</p>
+            <h2 data-i18n="install.title">How to install</h2>
+            <p class="section-intro" data-i18n="install.sub">Simple step-by-step guides for each platform.</p>
 
             <div class="tabs">
-                <button class="tab active" data-tab="firetv">📺 Fire TV / Android TV</button>
-                <button class="tab" data-tab="mobile">📱 Android Phone / Tablet</button>
+                <button class="tab active" data-tab="firetv" data-i18n="tab.tv">📺 Fire TV / Android TV</button>
+                <button class="tab" data-tab="mobile" data-i18n="tab.mob">📱 Android Phone / Tablet</button>
             </div>
 
             <!-- Fire TV TAB -->
@@ -433,8 +447,8 @@
 
         <!-- QR CODES -->
         <section id="qr">
-            <h2>Quick download with QR code</h2>
-            <p class="section-intro">Scan with your phone camera to open the download link instantly.</p>
+            <h2 data-i18n="qr.title">Quick download with QR code</h2>
+            <p class="section-intro" data-i18n="qr.sub">Scan with your phone camera to open the download link instantly.</p>
 
             <div class="qr-grid">
                 <div class="qr-card">
@@ -456,8 +470,8 @@
 
         <!-- FAQ -->
         <section id="faq">
-            <h2>Frequently Asked Questions</h2>
-            <p class="section-intro">Everything you need to know before installing BurgTV.</p>
+            <h2 data-i18n="faq.title">Frequently Asked Questions</h2>
+            <p class="section-intro" data-i18n="faq.sub">Everything you need to know before installing BurgTV.</p>
 
             <div class="faq-list">
 
@@ -536,8 +550,8 @@
 
         <!-- LEGAL HUB -->
         <section id="legal">
-            <h2>Legal &amp; Policies</h2>
-            <p class="section-intro">Full transparency. Read our policies and compliance documents.</p>
+            <h2 data-i18n="legal.title">Legal &amp; Policies</h2>
+            <p class="section-intro" data-i18n="legal.sub">Full transparency. Read our policies and compliance documents.</p>
 
             <div class="legal-grid">
                 <a href="https://app.burgtv.com/legal/" class="legal-card">
@@ -603,6 +617,25 @@
     </div>
 
     <script>
+        const DL_DICT = {
+          it: { 'hero.subtitle':"Media player neutro professionale per Fire TV, Android TV e mobile. Porti la tua sorgente multimediale legittima.", 'dl.btn':'Scarica APK', 'warn':"<strong>⚠️ Importante:</strong> BurgTV è solo un media player. Devi fornire la tua sorgente multimediale legittima (Xtream Codes, playlist M3U da abbonamento IPTV legale, o Plex/Jellyfin/Emby self-hosted).", 'install.title':'Come installare', 'install.sub':'Guide passo-passo per ogni piattaforma.', 'tab.tv':'📺 Fire TV / Android TV', 'tab.mob':'📱 Android Phone / Tablet', 'qr.title':'Download veloce con QR code', 'qr.sub':"Scansiona con la fotocamera del telefono per aprire subito il link di download.", 'faq.title':'Domande Frequenti', 'faq.sub':'Tutto quello che devi sapere prima di installare BurgTV.', 'legal.title':'Legale e Policy', 'legal.sub':'Piena trasparenza. Leggi le nostre policy e documenti di conformità.' },
+          en: { 'hero.subtitle':"Professional neutral media player for Fire TV, Android TV, and mobile. Bring your own legitimate media source.", 'dl.btn':'Download APK', 'warn':"<strong>⚠️ Important:</strong> BurgTV is a media player only. You must provide your own legitimate media source (Xtream Codes, M3U playlist from a licensed IPTV subscription, or self-hosted Plex/Jellyfin/Emby).", 'install.title':'How to install', 'install.sub':'Simple step-by-step guides for each platform.', 'tab.tv':'📺 Fire TV / Android TV', 'tab.mob':'📱 Android Phone / Tablet', 'qr.title':'Quick download with QR code', 'qr.sub':'Scan with your phone camera to open the download link instantly.', 'faq.title':'Frequently Asked Questions', 'faq.sub':'Everything you need to know before installing BurgTV.', 'legal.title':'Legal &amp; Policies', 'legal.sub':'Full transparency. Read our policies and compliance documents.' },
+          de: { 'hero.subtitle':"Professioneller neutraler Media Player für Fire TV, Android TV und Mobile. Bringen Sie Ihre eigene legitime Medienquelle mit.", 'dl.btn':'APK herunterladen', 'warn':"<strong>⚠️ Wichtig:</strong> BurgTV ist nur ein Media Player. Sie müssen Ihre eigene legitime Medienquelle bereitstellen (Xtream Codes, M3U-Playlist eines lizenzierten IPTV-Abonnements oder selbst gehostetes Plex/Jellyfin/Emby).", 'install.title':'Installation', 'install.sub':'Einfache Schritt-für-Schritt-Anleitungen für jede Plattform.', 'tab.tv':'📺 Fire TV / Android TV', 'tab.mob':'📱 Android Phone / Tablet', 'qr.title':'Schneller Download mit QR-Code', 'qr.sub':"Mit der Handykamera scannen, um den Download-Link sofort zu öffnen.", 'faq.title':'Häufig gestellte Fragen', 'faq.sub':'Alles, was Sie vor der Installation von BurgTV wissen müssen.', 'legal.title':'Recht &amp; Richtlinien', 'legal.sub':'Volle Transparenz. Lesen Sie unsere Richtlinien und Compliance-Dokumente.' },
+          es: { 'hero.subtitle':"Reproductor multimedia neutral profesional para Fire TV, Android TV y móvil. Trae tu propia fuente multimedia legítima.", 'dl.btn':'Descargar APK', 'warn':"<strong>⚠️ Importante:</strong> BurgTV es solo un reproductor multimedia. Debes proporcionar tu propia fuente legítima (Xtream Codes, lista M3U de suscripción IPTV legal, o Plex/Jellyfin/Emby auto-alojado).", 'install.title':'Cómo instalar', 'install.sub':'Guías paso a paso simples para cada plataforma.', 'tab.tv':'📺 Fire TV / Android TV', 'tab.mob':'📱 Android Phone / Tablet', 'qr.title':'Descarga rápida con código QR', 'qr.sub':"Escanea con la cámara del teléfono para abrir el enlace de descarga al instante.", 'faq.title':'Preguntas Frecuentes', 'faq.sub':'Todo lo que necesitas saber antes de instalar BurgTV.', 'legal.title':'Legal y Políticas', 'legal.sub':'Transparencia total. Lee nuestras políticas y documentos de cumplimiento.' },
+          fr: { 'hero.subtitle':"Lecteur multimédia neutre professionnel pour Fire TV, Android TV et mobile. Apportez votre propre source multimédia légitime.", 'dl.btn':'Télécharger APK', 'warn':"<strong>⚠️ Important :</strong> BurgTV n'est qu'un lecteur multimédia. Vous devez fournir votre propre source légitime (Xtream Codes, playlist M3U d'un abonnement IPTV licencié, ou Plex/Jellyfin/Emby auto-hébergé).", 'install.title':'Comment installer', 'install.sub':'Guides pas à pas simples pour chaque plateforme.', 'tab.tv':'📺 Fire TV / Android TV', 'tab.mob':'📱 Android Phone / Tablet', 'qr.title':'Téléchargement rapide avec QR code', 'qr.sub':"Scannez avec l'appareil photo de votre téléphone pour ouvrir instantanément le lien de téléchargement.", 'faq.title':'Questions Fréquentes', 'faq.sub':'Tout ce que vous devez savoir avant d\'installer BurgTV.', 'legal.title':'Légal et Politiques', 'legal.sub':'Transparence totale. Lisez nos politiques et documents de conformité.' }
+        };
+        function dlSetLang(l) {
+          const d = DL_DICT[l] || DL_DICT.it;
+          document.querySelectorAll('[data-i18n]').forEach(e => { const k = e.getAttribute('data-i18n'); if (d[k]) e.innerHTML = d[k]; });
+          document.querySelectorAll('.lang-switch button').forEach(b => b.classList.toggle('active', b.id === 'btn-' + l));
+          document.documentElement.lang = l;
+          localStorage.setItem('preferredLang', l);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+          ['it','en','de','es','fr'].forEach(l => { const b = document.getElementById('btn-'+l); if (b) b.addEventListener('click', () => dlSetLang(l)); });
+          dlSetLang(localStorage.getItem('preferredLang') || 'it');
+        });
+
         // Fetch TV version
         fetch('version.json?t=' + Date.now())
             .then(r => r.json())
