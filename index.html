@@ -3,166 +3,583 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scarica BurgTV</title>
+    <title>Scarica BurgTV — Fire TV, Android TV & Mobile</title>
+    <meta name="description" content="Scarica BurgTV, media player neutro per Fire TV, Android TV e dispositivi mobili. Xtream Codes, M3U, self-hosted support.">
     <link rel="icon" type="image/png" href="logo.png">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0D0D0D;
+            --bg2: #1A1A2E;
+            --accent: #7C4DFF;
+            --accent2: #5C3DCC;
+            --green: #3ddc84;
+            --text: #fff;
+            --muted: rgba(255,255,255,0.6);
+            --muted2: rgba(255,255,255,0.4);
+            --card: rgba(255,255,255,0.04);
+            --border: rgba(255,255,255,0.08);
         }
 
+        html { scroll-behavior: smooth; }
         body {
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0D0D0D 0%, #1A1A2E 50%, #0D0D0D 100%);
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            color: white;
-            padding: 20px;
+            color: var(--text);
+            line-height: 1.6;
         }
 
-        .container {
-            text-align: center;
-            max-width: 700px;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
 
-        .logo {
-            width: 120px;
-            height: auto;
-            margin-bottom: 30px;
-        }
-
+        /* HERO */
+        .hero { text-align: center; padding: 60px 0 80px; }
+        .logo { width: 100px; height: auto; margin-bottom: 24px; }
         h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #fff, #7C4DFF);
-            -webkit-background-clip: text;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, #fff, var(--accent));
+            -webkit-background-clip: text; background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
+        .subtitle { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
-        .subtitle {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 1rem;
-            margin-bottom: 50px;
-        }
-
+        /* PLATFORMS */
         .platforms {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 780px;
+            margin: 40px auto 0;
         }
-
-        @media (min-width: 550px) {
-            .platforms {
-                flex-direction: row;
-                justify-content: center;
-                gap: 60px;
-            }
+        @media (min-width: 640px) {
+            .platforms { grid-template-columns: 1fr 1fr; gap: 32px; }
         }
 
         .platform {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform .3s, border-color .3s;
         }
+        .platform:hover { transform: translateY(-4px); border-color: var(--accent); }
 
         .platform-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 16px;
+            width: 72px; height: 72px; border-radius: 16px;
+            margin-bottom: 16px;
+            object-fit: cover;
         }
-
-        .platform-name {
-            font-weight: 700;
-            font-size: 1.15rem;
-        }
-
-        .platform-version {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.85rem;
-        }
+        .android-icon { background: var(--green); padding: 12px; }
+        .platform-name { font-weight: 700; font-size: 1.25rem; margin-bottom: 4px; }
+        .platform-version { color: var(--muted2); font-size: 0.85rem; margin-bottom: 20px; }
 
         .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #7C4DFF 0%, #5C3DCC 100%);
-            color: white;
-            text-decoration: none;
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-size: 1.05rem;
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+            color: #fff; text-decoration: none;
+            padding: 14px 32px; border-radius: 999px;
+            font-size: 1rem; font-weight: 600;
+            transition: all .3s;
+            box-shadow: 0 8px 30px rgba(124,77,255,.35);
+        }
+        .download-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(124,77,255,.5); }
+        .download-btn svg { width: 20px; height: 20px; }
+
+        /* SECTION */
+        section { margin-top: 80px; }
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .section-intro { color: var(--muted); text-align: center; max-width: 720px; margin: 0 auto 40px; }
+
+        /* TABS */
+        .tabs {
+            display: flex; justify-content: center; gap: 8px;
+            margin-bottom: 32px; flex-wrap: wrap;
+        }
+        .tab {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 12px 24px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.95rem; font-weight: 600;
+            transition: all .2s;
+        }
+        .tab.active { background: var(--accent); border-color: var(--accent); }
+        .tab:hover:not(.active) { border-color: var(--accent); }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* STEPS */
+        .steps { max-width: 760px; margin: 0 auto; }
+        .step {
+            display: flex; gap: 20px;
+            padding: 24px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            margin-bottom: 16px;
+        }
+        .step-num {
+            flex: 0 0 40px;
+            width: 40px; height: 40px;
+            background: var(--accent);
+            border-radius: 999px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1.1rem;
+        }
+        .step-body h3 { font-size: 1.1rem; margin-bottom: 6px; }
+        .step-body p { color: var(--muted); font-size: 0.95rem; }
+        .step-body code {
+            background: rgba(124,77,255,0.15);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+        .step-body .code-big {
+            display: block;
+            background: #000;
+            border: 1px solid var(--border);
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 1rem;
+            color: var(--green);
+            overflow-x: auto;
+            user-select: all;
+        }
+
+        /* QR CODES */
+        .qr-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        @media (min-width: 640px) {
+            .qr-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .qr-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .qr-img {
+            width: 200px; height: 200px;
+            background: #fff;
+            border-radius: 12px;
+            padding: 10px;
+            margin: 0 auto 16px;
+        }
+        .qr-img img { width: 100%; height: 100%; }
+        .qr-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+        .qr-card p { color: var(--muted); font-size: 0.9rem; }
+
+        /* FAQ */
+        .faq-list { max-width: 760px; margin: 0 auto; }
+        details.faq {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 12px;
+            transition: background .2s;
+        }
+        details.faq[open] { background: rgba(124,77,255,0.08); border-color: var(--accent); }
+        details.faq summary {
+            cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(124, 77, 255, 0.35);
+            font-size: 1rem;
+            list-style: none;
+            display: flex; justify-content: space-between; align-items: center;
         }
+        details.faq summary::-webkit-details-marker { display: none; }
+        details.faq summary::after {
+            content: '+';
+            font-size: 1.4rem; font-weight: 300;
+            color: var(--accent);
+            transition: transform .2s;
+        }
+        details.faq[open] summary::after { transform: rotate(45deg); }
+        details.faq .faq-body {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        details.faq .faq-body a { color: var(--accent); text-decoration: none; }
+        details.faq .faq-body a:hover { text-decoration: underline; }
 
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(124, 77, 255, 0.5);
+        /* LEGAL HUB */
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            max-width: 920px;
+            margin: 0 auto;
         }
+        .legal-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            color: var(--text);
+            text-decoration: none;
+            transition: all .2s;
+        }
+        .legal-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .legal-card .icon { font-size: 2rem; margin-bottom: 8px; }
+        .legal-card strong { display: block; font-size: 1rem; margin-bottom: 4px; }
+        .legal-card small { color: var(--muted); font-size: 0.85rem; }
 
-        .download-btn svg {
-            width: 20px;
-            height: 20px;
+        /* FOOTER */
+        footer {
+            margin-top: 100px;
+            padding: 40px 0 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
         }
+        footer p { color: var(--muted2); font-size: 0.85rem; margin-bottom: 10px; }
+        footer a { color: var(--muted); text-decoration: none; }
+        footer a:hover { color: var(--accent); }
 
-        .android-icon {
-            background: #3ddc84;
-            padding: 12px;
+        /* WARNING BANNER */
+        .warn {
+            max-width: 780px; margin: 32px auto 0;
+            padding: 14px 20px;
+            background: rgba(124,77,255,0.08);
+            border: 1px solid rgba(124,77,255,0.3);
+            border-radius: 10px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: center;
         }
-
-        .info {
-            margin-top: 50px;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 0.8rem;
-        }
+        .warn strong { color: var(--accent); }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <img src="logo.png" alt="BurgTV" class="logo">
-        <h1>BurgTV</h1>
-        <p class="subtitle">Scarica l'app per il tuo dispositivo</p>
 
-        <div class="platforms">
-            <!-- Fire TV Stick -->
-            <div class="platform">
-                <img src="firetv-logo.png" alt="Fire TV" class="platform-icon" style="border-radius:12px;">
-                <span class="platform-name">Fire TV Stick</span>
-                <span class="platform-version" id="tv-version">v1.1.9</span>
-                <a id="tv-download" href="https://github.com/burgtv/burgtv-releases/releases/download/v1.1.9/burgtv-1.1.9-release.apk" class="download-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    Scarica APK
-                </a>
-            </div>
-
-            <!-- Android Mobile -->
-            <div class="platform">
-                <svg class="platform-icon android-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/>
-                </svg>
-                <span class="platform-name">Android Mobile</span>
-                <span class="platform-version" id="mobile-version">v1.0.0</span>
-                <a id="mobile-download" href="https://github.com/burgtv/burgtv-mobile-releases/releases/download/android-v1.0.0/burgtv-mobile-1.0.0-release.apk" class="download-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    Scarica APK
-                </a>
-            </div>
+        <!-- HERO -->
+        <div class="hero">
+            <img src="logo.png" alt="BurgTV" class="logo">
+            <h1>BurgTV</h1>
+            <p class="subtitle">Professional neutral media player for Fire TV, Android TV, and mobile. Bring your own legitimate media source.</p>
         </div>
 
-        <p class="info">BurgTV non fornisce contenuti. È necessaria una propria sorgente multimediale.</p>
+        <!-- DOWNLOAD -->
+        <section id="download" style="margin-top: 0;">
+            <div class="platforms">
+
+                <!-- Fire TV -->
+                <div class="platform">
+                    <img src="firetv-logo.png" alt="Fire TV" class="platform-icon">
+                    <div class="platform-name">Fire TV Stick</div>
+                    <div class="platform-version" id="tv-version">v1.1.9</div>
+                    <a id="tv-download" href="https://github.com/burgtv/burgtv-releases/releases/download/v1.1.9/burgtv-1.1.9-release.apk" class="download-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        </svg>
+                        Download APK
+                    </a>
+                </div>
+
+                <!-- Mobile -->
+                <div class="platform">
+                    <svg class="platform-icon android-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/>
+                    </svg>
+                    <div class="platform-name">Android Mobile</div>
+                    <div class="platform-version" id="mobile-version">v1.1.0</div>
+                    <a id="mobile-download" href="https://github.com/burgtv/burgtv-mobile-releases/releases/download/android-v1.1.0/burgtv-mobile-1.1.0-release.apk" class="download-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        </svg>
+                        Download APK
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="warn">
+                <strong>⚠️ Important:</strong> BurgTV is a media player only. You must provide your own legitimate media source (Xtream Codes, M3U playlist from a licensed IPTV subscription, or self-hosted Plex/Jellyfin/Emby).
+            </div>
+        </section>
+
+        <!-- HOW TO INSTALL -->
+        <section id="install">
+            <h2>How to install</h2>
+            <p class="section-intro">Simple step-by-step guides for each platform.</p>
+
+            <div class="tabs">
+                <button class="tab active" data-tab="firetv">📺 Fire TV / Android TV</button>
+                <button class="tab" data-tab="mobile">📱 Android Phone / Tablet</button>
+            </div>
+
+            <!-- Fire TV TAB -->
+            <div class="tab-content active" id="tab-firetv">
+                <div class="steps">
+
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-body">
+                            <h3>Enable app installation from unknown sources</h3>
+                            <p>On your Fire TV, go to <code>Settings → My Fire TV → Developer options</code> and enable <strong>"Apps from Unknown Sources"</strong>. On Android TV go to <code>Settings → Device Preferences → Security → Unknown sources</code>.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-body">
+                            <h3>Install the Downloader app</h3>
+                            <p>On your Fire TV, search for <strong>"Downloader"</strong> app (by AFTVnews) on Amazon Appstore and install it. It's free. On Android TV boxes you may already have a file browser that supports URL download.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-body">
+                            <h3>Open Downloader and type this URL</h3>
+                            <p>Open the Downloader app. In the URL bar, type:</p>
+                            <code class="code-big">download.burgtv.com/tv.apk</code>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <div class="step-body">
+                            <h3>Download and install</h3>
+                            <p>Click <strong>Go</strong>. The APK will download (about 17 MB). When it's done, click <strong>Install</strong>. Accept permissions.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">5</div>
+                        <div class="step-body">
+                            <h3>Launch BurgTV and configure your source</h3>
+                            <p>Open BurgTV from your Fire TV home screen. Add your Xtream Codes credentials or M3U playlist URL when prompted. Enjoy!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Mobile TAB -->
+            <div class="tab-content" id="tab-mobile">
+                <div class="steps">
+
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-body">
+                            <h3>Allow installation from unknown sources</h3>
+                            <p>Go to <code>Settings → Security</code> (or <code>Apps → Special access → Install unknown apps</code>) and enable permission for your browser or file manager.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-body">
+                            <h3>Download the APK</h3>
+                            <p>Tap the <strong>Download APK</strong> button above, or open this link directly in your mobile browser:</p>
+                            <code class="code-big">download.burgtv.com/mobile.apk</code>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-body">
+                            <h3>Open the downloaded file</h3>
+                            <p>Once the APK is downloaded, tap the notification or go to your <code>Downloads</code> folder. Tap <strong>burgtv-mobile-1.1.0-release.apk</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <div class="step-body">
+                            <h3>Install and accept permissions</h3>
+                            <p>Tap <strong>Install</strong>. Android may show a security warning (Play Protect) — this is normal for apps outside Play Store. Tap <strong>Install anyway</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">5</div>
+                        <div class="step-body">
+                            <h3>Launch and configure</h3>
+                            <p>Open BurgTV from your app drawer. Add your Xtream Codes credentials or M3U playlist URL. Enjoy streaming!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- QR CODES -->
+        <section id="qr">
+            <h2>Quick download with QR code</h2>
+            <p class="section-intro">Scan with your phone camera to open the download link instantly.</p>
+
+            <div class="qr-grid">
+                <div class="qr-card">
+                    <div class="qr-img">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data=https%3A%2F%2Fdownload.burgtv.com%2Ftv.apk" alt="QR Fire TV" loading="lazy">
+                    </div>
+                    <h3>Fire TV / Android TV APK</h3>
+                    <p>Scan or open <code>download.burgtv.com/tv.apk</code></p>
+                </div>
+                <div class="qr-card">
+                    <div class="qr-img">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data=https%3A%2F%2Fdownload.burgtv.com%2Fmobile.apk" alt="QR Mobile" loading="lazy">
+                    </div>
+                    <h3>Android Mobile APK</h3>
+                    <p>Scan or open <code>download.burgtv.com/mobile.apk</code></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <p class="section-intro">Everything you need to know before installing BurgTV.</p>
+
+            <div class="faq-list">
+
+                <details class="faq">
+                    <summary>Is BurgTV legal?</summary>
+                    <div class="faq-body">
+                        Yes. BurgTV is a neutral media player, similar to VLC, MX Player, or Kodi. It does not host, distribute, or provide any content. You are responsible for ensuring that the content you access through your own media source is legal in your jurisdiction. See our <a href="https://app.burgtv.com/legal/terms">Terms of Service</a>.
+                    </div>
+                </details>
+
+                <details class="faq">
+                    <summary>Does BurgTV provide channels or streams?</summary>
+                    <div class="faq-body">
+                        No. BurgTV does not provide any content. You must supply your own Xtream Codes credentials, M3U playlist URL, or connect to your self-hosted media server (Plex, Jellyfin, Emby).
+                    </div>
+                </details>
+
+                <details class="faq">
+                    <summary>Why is BurgTV not on Google Play / App Store / Amazon?</summary>
+                    <div class="faq-body">
+                        Many official app stores have strict policies about IPTV-capable players, even when the app is legal and neutral. We distribute directly via <code>download.burgtv.com</code> to avoid the back-and-forth with store reviews. We are also available on APKPure, Huawei AppGallery, and other alternative stores.
+                    </div>
+                </details>
+
+                <details class="faq">
+                    <summary>Is it safe to install an APK outside the Play Store?</summary>
+                    <div class="faq-body">
+                        Yes, when you trust the source. BurgTV APKs are signed with our official release keystore and the SHA256 hash is published with each release on <a href="https://github.com/burgtv/burgtv-releases/releases">GitHub Releases</a>. You can verify the APK integrity before installing. Android may warn you (Play Protect) because the app is not from Play Store — this is expected and not a sign of malware.
+                    </div>
+                </details>
+
+                <details class="faq">
+                    <summary>Does BurgTV work with my IPTV subscription?</summary>
+                    <div class="faq-body">
+                        BurgTV supports any IPTV subscription that provides Xtream Codes credentials (username + password + portal URL) or an M3U/M3U8 playlist URL. It does not include or endorse any specific IPTV provider.
+                    </div>
+                </details>
+
+                <details class="faq">
+                    <summary>Does BurgTV collect my data?</summary>
+                    <div class="faq-body">
+                        No ads, no tracking, no analytics. The only data collected are anonymous crash reports via Firebase Crashlytics (only in release builds) to help us fix bugs. See our <a href="https://app.burgtv.com/legal/privacy">Privacy Policy</a>. GDPR, CCPA, LGPD, nFADP compliant.
+                    </div>
+                </details>
+
+                <details class="faq">
+                    <summary>Is there a Premium version?</summary>
+                    <div class="faq-body">
+                        BurgTV is free. An optional Premium subscription is available via <a href="https://app.burgtv.com">app.burgtv.com</a> for users who want cloud favorites, multi-device sync, and priority support. 7-day free trial. Premium is NOT required to use the app.
+                    </div>
+                </details>
+
+                <details class="faq">
+                    <summary>How do I update BurgTV?</summary>
+                    <div class="faq-body">
+                        BurgTV has a built-in update checker. When a new version is available, you'll see a notification. You can also manually check by re-downloading from this page or visiting <a href="https://github.com/burgtv/burgtv-releases/releases">GitHub Releases</a>.
+                    </div>
+                </details>
+
+                <details class="faq">
+                    <summary>How can I report a bug or request a feature?</summary>
+                    <div class="faq-body">
+                        Email us at <a href="mailto:support@burgtv.com">support@burgtv.com</a>. We typically respond within 24–48 hours.
+                    </div>
+                </details>
+
+                <details class="faq">
+                    <summary>How do I request DMCA takedown?</summary>
+                    <div class="faq-body">
+                        If you believe the app is being misused to access copyrighted content, contact us at <a href="mailto:dmca@burgtv.com">dmca@burgtv.com</a> with the required information. See our <a href="https://app.burgtv.com/legal/dmca">DMCA Policy</a>.
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <!-- LEGAL HUB -->
+        <section id="legal">
+            <h2>Legal &amp; Policies</h2>
+            <p class="section-intro">Full transparency. Read our policies and compliance documents.</p>
+
+            <div class="legal-grid">
+                <a href="https://app.burgtv.com/legal/terms" class="legal-card">
+                    <div class="icon">📜</div>
+                    <strong>Terms of Service</strong>
+                    <small>Rules of use, warranties, liability</small>
+                </a>
+                <a href="https://app.burgtv.com/legal/privacy" class="legal-card">
+                    <div class="icon">🔒</div>
+                    <strong>Privacy Policy</strong>
+                    <small>GDPR, CCPA, LGPD, nFADP</small>
+                </a>
+                <a href="https://app.burgtv.com/legal/aup" class="legal-card">
+                    <div class="icon">⚖️</div>
+                    <strong>Acceptable Use</strong>
+                    <small>What you can and cannot do</small>
+                </a>
+                <a href="https://app.burgtv.com/legal/dmca" class="legal-card">
+                    <div class="icon">🚨</div>
+                    <strong>DMCA Policy</strong>
+                    <small>Takedown procedure</small>
+                </a>
+                <a href="https://app.burgtv.com/legal/cookies" class="legal-card">
+                    <div class="icon">🍪</div>
+                    <strong>Cookie Policy</strong>
+                    <small>ePrivacy compliance</small>
+                </a>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2026 BurgTV — Developed in Switzerland 🇨🇭</p>
+            <p>
+                <a href="https://burgtv.com">burgtv.com</a> ·
+                <a href="https://app.burgtv.com">app.burgtv.com</a> ·
+                <a href="https://github.com/burgtv/burgtv-releases/releases">GitHub Releases</a> ·
+                <a href="mailto:support@burgtv.com">support@burgtv.com</a>
+            </p>
+            <p style="margin-top: 16px;">BurgTV is a neutral media player. It does not host, distribute, or provide any content.</p>
+        </footer>
+
     </div>
 
     <script>
@@ -183,6 +600,18 @@
                 document.getElementById('mobile-download').href = data.download_url;
             })
             .catch(() => {});
+
+        // Tabs
+        document.querySelectorAll('.tab').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.dataset.tab;
+                document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b === btn));
+                document.querySelectorAll('.tab-content').forEach(c => {
+                    c.classList.toggle('active', c.id === 'tab-' + id);
+                });
+            });
+        });
     </script>
+
 </body>
 </html>

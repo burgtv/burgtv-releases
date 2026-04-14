@@ -1,0 +1,52 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/tv.apk",
+      "destination": "https://github.com/burgtv/burgtv-releases/releases/latest/download/burgtv-1.1.9-release.apk",
+      "permanent": false
+    },
+    {
+      "source": "/tv",
+      "destination": "https://github.com/burgtv/burgtv-releases/releases/latest/download/burgtv-1.1.9-release.apk",
+      "permanent": false
+    },
+    {
+      "source": "/mobile.apk",
+      "destination": "https://github.com/burgtv/burgtv-mobile-releases/releases/latest/download/burgtv-mobile-1.1.0-release.apk",
+      "permanent": false
+    },
+    {
+      "source": "/mobile",
+      "destination": "https://github.com/burgtv/burgtv-mobile-releases/releases/latest/download/burgtv-mobile-1.1.0-release.apk",
+      "permanent": false
+    },
+    {
+      "source": "/android",
+      "destination": "https://github.com/burgtv/burgtv-mobile-releases/releases/latest/download/burgtv-mobile-1.1.0-release.apk",
+      "permanent": false
+    },
+    {
+      "source": "/apk",
+      "destination": "https://github.com/burgtv/burgtv-releases/releases/latest/download/burgtv-1.1.9-release.apk",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/version.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=60, must-revalidate" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
