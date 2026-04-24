@@ -19,18 +19,15 @@ jobs:
       - name: Extract version from tag
         id: version
         run: |
-          # Get tag name (e.g., v1.0.6)
+          # Get tag name (e.g., v1.1.10)
           TAG="${{ github.event.release.tag_name }}"
           # Remove 'v' prefix if present
           VERSION_NAME="${TAG#v}"
-          # Extract version code from version name (e.g., 1.0.6 -> 6)
-          VERSION_CODE=$(echo "$VERSION_NAME" | cut -d'.' -f3)
           # Get changelog from release body (first 200 chars, single line)
           CHANGELOG=$(echo "${{ github.event.release.body }}" | head -c 200 | tr '\n' ' ' | sed 's/"/\\"/g')
 
           echo "tag=$TAG" >> $GITHUB_OUTPUT
           echo "version_name=$VERSION_NAME" >> $GITHUB_OUTPUT
-          echo "version_code=$VERSION_CODE" >> $GITHUB_OUTPUT
           echo "changelog=$CHANGELOG" >> $GITHUB_OUTPUT
 
       - name: Find APK asset URL
@@ -44,11 +41,26 @@ jobs:
           fi
           echo "url=$APK_URL" >> $GITHUB_OUTPUT
 
+      - name: Read versionCode from APK
+        id: vcode
+        run: |
+          # Download APK temporarily to read true versionCode (avoids bug when
+          # version_name has 2-digit patch like 1.1.10 — splitting by '.' gives 10 not 120)
+          sudo apt-get update -qq && sudo apt-get install -y -qq aapt
+          curl -sL -o /tmp/app.apk "${{ steps.apk.outputs.url }}"
+          VERSION_CODE=$(aapt dump badging /tmp/app.apk | grep -oP "versionCode='\K[0-9]+")
+          if [ -z "$VERSION_CODE" ]; then
+            echo "Error: couldn't read versionCode from APK"
+            exit 1
+          fi
+          echo "Extracted versionCode: $VERSION_CODE"
+          echo "version_code=$VERSION_CODE" >> $GITHUB_OUTPUT
+
       - name: Update version.json
         run: |
           cat > version.json << 'EOF'
           {
-              "version_code": ${{ steps.version.outputs.version_code }},
+              "version_code": ${{ steps.vcode.outputs.version_code }},
               "version_name": "${{ steps.version.outputs.version_name }}",
               "download_url": "${{ steps.apk.outputs.url }}",
               "changelog": "${{ steps.version.outputs.changelog }}",
