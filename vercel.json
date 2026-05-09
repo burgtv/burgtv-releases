@@ -30,11 +30,38 @@
       "source": "/apk",
       "destination": "https://github.com/burgtv/burgtv-releases/releases/latest/download/burgtv-1.1.9-release.apk",
       "permanent": false
+    },
+    {
+      "source": "/ios",
+      "destination": "https://apps.apple.com/app/id6761636987",
+      "permanent": false
+    },
+    {
+      "source": "/iphone",
+      "destination": "https://apps.apple.com/app/id6761636987",
+      "permanent": false
+    },
+    {
+      "source": "/ipad",
+      "destination": "https://apps.apple.com/app/id6761636987",
+      "permanent": false
+    },
+    {
+      "source": "/appstore",
+      "destination": "https://apps.apple.com/app/id6761636987",
+      "permanent": false
     }
   ],
   "headers": [
     {
       "source": "/version.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=60, must-revalidate" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/version-ios.json",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=60, must-revalidate" },
         { "key": "Access-Control-Allow-Origin", "value": "*" }
