@@ -160,6 +160,10 @@
       ['top', 'right', 'bottom', 'left'].forEach(side => {
         if (savedPos[side] && savedPos[side] !== 'auto') dropdown.style[side] = savedPos[side];
       });
+      // Shrink wrapper to trigger width when fixed/absolute — otherwise it
+      // inherits the old flex container's width and the menu's right:0 lands
+      // far off to the side of the actual button.
+      dropdown.style.width = 'max-content';
     }
     // Else: dropdown stays inline where the original .lang-switch was (e.g. inside nav)
 
