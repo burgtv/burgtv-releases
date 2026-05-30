@@ -173,6 +173,24 @@
     }
     // Else: dropdown stays inline where the original .lang-switch was (e.g. inside nav)
 
+    // Defensive: ensure dropdown stays at top during scroll regardless of context
+    (function ensureStaysOnTopDuringScroll() {
+      if (dropdown.style.position === 'fixed' || dropdown.style.position === 'absolute') return;
+      let p = dropdown.parentElement;
+      while (p && p !== document.body) {
+        const pos = window.getComputedStyle(p).position;
+        if (pos === 'sticky' || pos === 'fixed') return;
+        p = p.parentElement;
+      }
+      dropdown.style.position = 'fixed';
+      dropdown.style.top = '0.75rem';
+      dropdown.style.right = '0.75rem';
+      dropdown.style.left = 'auto';
+      dropdown.style.bottom = 'auto';
+      dropdown.style.zIndex = '1000';
+      dropdown.style.width = 'max-content';
+    })();
+
     // Wire up dropdown
     const trigger = dropdown.querySelector('.bv-lang-dd-trigger');
     const menu = dropdown.querySelector('.bv-lang-dd-menu');
