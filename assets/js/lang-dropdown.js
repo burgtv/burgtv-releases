@@ -16,6 +16,12 @@
     de: { flag: '🇩🇪', code: 'DE', name: 'Deutsch' },
     es: { flag: '🇪🇸', code: 'ES', name: 'Español' },
     fr: { flag: '🇫🇷', code: 'FR', name: 'Français' },
+    pt: { flag: '🇵🇹', code: 'PT', name: 'Português' },
+    tr: { flag: '🇹🇷', code: 'TR', name: 'Türkçe' },
+    nl: { flag: '🇳🇱', code: 'NL', name: 'Nederlands' },
+    pl: { flag: '🇵🇱', code: 'PL', name: 'Polski' },
+    ru: { flag: '🇷🇺', code: 'RU', name: 'Русский' },
+    ar: { flag: '🇸🇦', code: 'AR', name: 'العربية' },
   };
 
   // Inject dropdown CSS once
@@ -87,7 +93,7 @@
   function getCurrentLang(buttons) {
     // Cookie has cross-subdomain priority; then localStorage; then DOM lang; then default Italian
     const fromCookie = getCookie('burgtv_lang');
-    if (fromCookie && /^(it|en|de|es|fr)$/.test(fromCookie)) return fromCookie;
+    if (fromCookie && /^(it|en|de|es|fr|pt|tr|nl|pl|ru|ar)$/.test(fromCookie)) return fromCookie;
     for (const [l, btn] of Object.entries(buttons)) {
       if (btn.classList.contains('active')) return l;
     }
@@ -222,7 +228,7 @@
 
     // On page load: if cookie has a different lang than currently active, trigger the corresponding button
     const savedLang = getCookie('burgtv_lang');
-    if (savedLang && /^(it|en|de|es|fr)$/.test(savedLang) && savedLang !== current) {
+    if (savedLang && /^(it|en|de|es|fr|pt|tr|nl|pl|ru|ar)$/.test(savedLang) && savedLang !== current) {
       const targetBtn = found.buttons[savedLang];
       if (targetBtn) {
         // Defer to allow the page's own setLang to be wired up first
