@@ -55,7 +55,7 @@
   function findLangButtons() {
     // Pattern 1: buttons with id="btn-XX" (burgtv.com, legal pages)
     const idButtons = {};
-    ['it', 'en', 'de', 'es', 'fr'].forEach(l => {
+    Object.keys(LANG_META).forEach(l => {
       const b = document.getElementById('btn-' + l);
       if (b) idButtons[l] = b;
     });
