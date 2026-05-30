@@ -34,7 +34,7 @@
       .bv-lang-dd-trigger .bv-flag { font-size: 18px; line-height: 1; }
       .bv-lang-dd-trigger .bv-chev { width: 14px; height: 14px; transition: transform 0.2s; opacity: 0.7; flex-shrink: 0; }
       .bv-lang-dd-trigger[aria-expanded="true"] .bv-chev { transform: rotate(180deg); }
-      .bv-lang-dd-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 170px; background: rgba(20,20,30,0.98); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 6px; list-style: none; margin: 0; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: all 0.2s; z-index: 99999; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+      .bv-lang-dd-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 170px; max-width: calc(100vw - 24px); max-height: calc(100vh - 80px); overflow-y: auto; background: rgba(20,20,30,0.98); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 6px; list-style: none; margin: 0; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity .2s, transform .2s; z-index: 99999; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
       .bv-lang-dd-menu.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
       .bv-lang-dd-opt { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; cursor: pointer; font-size: 14px; color: #d9def7; transition: background 0.15s; }
       .bv-lang-dd-opt:hover { background: rgba(255,255,255,0.06); color: #fff; }
