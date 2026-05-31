@@ -7,7 +7,7 @@
     <meta name="description" content="Download BurgTV media player for iPhone, iPad, Android, Fire TV and Android TV. Xtream Codes, M3U, self-hosted support.">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="shortcut icon" href="/favicon.ico">
-    <script src="/assets/js/lang-dropdown.js?v=20260531-7" defer></script>
+    <script src="/assets/js/lang-dropdown.js?v=20260531-8" defer></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -113,6 +113,9 @@
         }
         .download-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(255,255,255,.25); }
         .download-btn svg { display: none; }
+        /* App Store badge keeps its native black design, no white wrapper */
+        .download-btn.appstore-btn { background: transparent; border: none; padding: 0; box-shadow: none; }
+        .download-btn.appstore-btn:hover { box-shadow: none; }
 
         /* SECTION */
         section { margin-top: 56px; }
@@ -348,7 +351,7 @@
                     <svg class="platform-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.05 12.04c-.03-3.16 2.58-4.69 2.7-4.76-1.47-2.15-3.76-2.45-4.57-2.48-1.94-.2-3.79 1.14-4.78 1.14-.99 0-2.51-1.11-4.13-1.08-2.13.03-4.09 1.24-5.18 3.13-2.21 3.83-.56 9.49 1.59 12.6 1.05 1.52 2.3 3.23 3.93 3.17 1.58-.06 2.18-1.02 4.09-1.02 1.91 0 2.45 1.02 4.13.99 1.71-.03 2.79-1.55 3.83-3.08 1.21-1.77 1.71-3.49 1.74-3.58-.04-.02-3.34-1.28-3.37-5.07-.03-3.17 2.59-4.69 2.71-4.76-1.48-2.18-3.79-2.43-4.6-2.49zM14.62 3.6c.87-1.06 1.46-2.53 1.3-4-1.25.05-2.79.84-3.69 1.89-.81.93-1.52 2.43-1.33 3.86 1.4.11 2.83-.71 3.72-1.75z"/>
                     </svg>
-                    <div class="platform-name">iPhone &amp; iPad</div>
+                    <div class="platform-name" data-i18n="platform.ios">iPhone &amp; iPad</div>
                     <div class="platform-version" id="ios-version">v1.0.4</div>
                     <a id="ios-download" href="https://apps.apple.com/app/id6761636987" class="download-btn appstore-btn" target="_blank" rel="noopener">
                         <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" style="height:40px;width:auto;display:block;">
@@ -360,7 +363,7 @@
                     <svg class="platform-icon android-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/>
                     </svg>
-                    <div class="platform-name">Android Mobile</div>
+                    <div class="platform-name" data-i18n="platform.mobile">Android Mobile</div>
                     <div class="platform-version" id="mobile-version">v1.1.8</div>
                     <a id="mobile-download" href="https://github.com/burgtv/burgtv-mobile-releases/releases/download/android-v1.1.8/burgtv-mobile-1.1.8-release.apk" class="download-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -373,7 +376,7 @@
                 <!-- Fire TV -->
                 <div class="platform">
                     <img src="firetv-logo.png" alt="Fire TV" class="platform-icon">
-                    <div class="platform-name">Fire TV Stick</div>
+                    <div class="platform-name" data-i18n="platform.firetv">Fire TV Stick</div>
                     <div class="platform-version" id="tv-version">v1.1.34</div>
                     <a id="tv-download" href="https://github.com/burgtv/burgtv-releases/releases/download/v1.1.34/burgtv-1.1.34-release.apk" class="download-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -760,6 +763,10 @@
             'leg.transp.sub': 'DMCA, richieste governative, enforcement',
             'leg.gf': 'Dichiarazione di Buona Fede',
             'leg.gf.sub': 'Posizione sulla conformità al copyright'
+          ,
+            'platform.ios': 'iPhone & iPad',
+            'platform.mobile': 'Smartphone Android',
+            'platform.firetv': 'Fire TV Stick'
           },
           en: {
             'hero.subtitle': "Professional neutral media player for Fire TV, Android TV, and mobile. Bring your own legitimate media source.",
@@ -844,6 +851,10 @@
             'leg.transp.sub': 'DMCA, gov requests, enforcement',
             'leg.gf': 'Good Faith Statement',
             'leg.gf.sub': 'Position on copyright compliance'
+          ,
+            'platform.ios': 'iPhone & iPad',
+            'platform.mobile': 'Android Mobile',
+            'platform.firetv': 'Fire TV Stick'
           },
           de: {
             'hero.subtitle': "Professioneller neutraler Media Player für Fire TV, Android TV und Mobile. Bringen Sie Ihre eigene legitime Medienquelle mit.",
@@ -928,6 +939,10 @@
             'leg.transp.sub': 'DMCA, Behördenanfragen, Durchsetzung',
             'leg.gf': 'Erklärung in gutem Glauben',
             'leg.gf.sub': 'Position zur Urheberrechtskonformität'
+          ,
+            'platform.ios': 'iPhone & iPad',
+            'platform.mobile': 'Android Smartphone',
+            'platform.firetv': 'Fire TV Stick'
           },
           es: {
             'hero.subtitle': "Reproductor multimedia neutral profesional para Fire TV, Android TV y móvil. Trae tu propia fuente multimedia legítima.",
@@ -1012,6 +1027,10 @@
             'leg.transp.sub': 'DMCA, solicitudes gubernamentales, cumplimiento',
             'leg.gf': 'Declaración de Buena Fe',
             'leg.gf.sub': 'Posición sobre el cumplimiento del copyright'
+          ,
+            'platform.ios': 'iPhone & iPad',
+            'platform.mobile': 'Android Móvil',
+            'platform.firetv': 'Fire TV Stick'
           },
           fr: {
             'hero.subtitle': "Lecteur multimédia neutre professionnel pour Fire TV, Android TV et mobile. Apportez votre propre source multimédia légitime.",
@@ -1096,6 +1115,10 @@
             'leg.transp.sub': 'DMCA, demandes gouvernementales, application',
             'leg.gf': 'Déclaration de bonne foi',
             'leg.gf.sub': "Position sur la conformité au droit d'auteur"
+          ,
+            'platform.ios': 'iPhone & iPad',
+            'platform.mobile': 'Android Mobile',
+            'platform.firetv': 'Fire TV Stick'
           },
           pt: {
             'hero.subtitle': 'Media player neutro profissional para Fire TV, Android TV e mobile. Traga a sua fonte de mídia legítima.',
@@ -1176,6 +1199,10 @@
             'faq.a7': 'BurgTV é gratuito. Uma subscrição Premium opcional está disponível em <a href="https://app.burgtv.com">app.burgtv.com</a> para quem deseja favoritos na nuvem, sincronização multi-dispositivo e suporte prioritário. Teste grátis de 7 dias. Premium NÃO é necessário para usar a app.',
             'faq.a10': 'Se acredita que a app é usada indevidamente para aceder a conteúdo protegido por direitos autorais, contacte-nos em <a href="mailto:info@burgtv.com">info@burgtv.com</a> com as informações necessárias. Consulte a nossa <a href="https://app.burgtv.com/legal/dmca.html">Política DMCA</a>.',
             'leg.tos.sub': 'Regras de utilização, garantias, responsabilidades'
+          ,
+            'platform.ios': 'iPhone & iPad',
+            'platform.mobile': 'Android Móvel',
+            'platform.firetv': 'Fire TV Stick'
           },
           tr: {
             'hero.subtitle': 'Fire TV, Android TV ve mobil için profesyonel tarafsız medya oynatıcı. Yasal medya kaynağınızı getirin.',
@@ -1256,6 +1283,10 @@
             'faq.a7': 'BurgTV ücretsizdir. İsteğe bağlı bir Premium abonelik, bulut favorileri, çoklu cihaz senkronizasyonu ve öncelikli destek isteyenler için <a href="https://app.burgtv.com">app.burgtv.com</a>\'da mevcuttur. 7 günlük ücretsiz deneme. Uygulamayı kullanmak için Premium GEREKLİ DEĞİLDİR.',
             'faq.a10': 'Uygulamanın telif hakkıyla korunan içeriğe erişmek için uygunsuz şekilde kullanıldığını düşünüyorsanız, gerekli bilgilerle birlikte <a href="mailto:info@burgtv.com">info@burgtv.com</a>\'a ulaşın. <a href="https://app.burgtv.com/legal/dmca.html">DMCA Politikamıza</a> bakın.',
             'leg.tos.sub': 'Kullanım kuralları, garantiler, sorumluluklar'
+          ,
+            'platform.ios': 'iPhone & iPad',
+            'platform.mobile': 'Android Telefon',
+            'platform.firetv': 'Fire TV Stick'
           },
           nl: {
             'hero.subtitle': 'Professionele neutrale media player voor Fire TV, Android TV en mobiel. Breng uw eigen legitieme mediabron mee.',
@@ -1336,6 +1367,10 @@
             'faq.a7': 'BurgTV is gratis. Een optioneel Premium-abonnement is beschikbaar op <a href="https://app.burgtv.com">app.burgtv.com</a> voor wie cloudfavorieten, multi-apparaatsynchronisatie en prioriteitsondersteuning wenst. 7 dagen gratis proefperiode. Premium is NIET nodig om de app te gebruiken.',
             'faq.a10': 'Als u denkt dat de app oneigenlijk wordt gebruikt om toegang te krijgen tot auteursrechtelijk beschermde content, neem dan contact met ons op via <a href="mailto:info@burgtv.com">info@burgtv.com</a> met de benodigde informatie. Raadpleeg ons <a href="https://app.burgtv.com/legal/dmca.html">DMCA-beleid</a>.',
             'leg.tos.sub': 'Gebruiksregels, garanties, verantwoordelijkheden'
+          ,
+            'platform.ios': 'iPhone & iPad',
+            'platform.mobile': 'Android Mobiel',
+            'platform.firetv': 'Fire TV Stick'
           },
           pl: {
             'hero.subtitle': 'Profesjonalny neutralny media player na Fire TV, Android TV i urządzenia mobilne. Przynieś własne legalne źródło multimediów.',
@@ -1416,6 +1451,10 @@
             'faq.a7': 'BurgTV jest darmowy. Opcjonalna subskrypcja Premium jest dostępna na <a href="https://app.burgtv.com">app.burgtv.com</a> dla tych, którzy chcą ulubionych w chmurze, synchronizacji wielu urządzeń i priorytetowego wsparcia. 7-dniowy darmowy okres próbny. Premium NIE jest wymagany do korzystania z aplikacji.',
             'faq.a10': 'Jeśli uważasz, że aplikacja jest niewłaściwie używana do uzyskiwania dostępu do treści chronionych prawem autorskim, skontaktuj się z nami pod <a href="mailto:info@burgtv.com">info@burgtv.com</a> z niezbędnymi informacjami. Sprawdź naszą <a href="https://app.burgtv.com/legal/dmca.html">Politykę DMCA</a>.',
             'leg.tos.sub': 'Zasady użytkowania, gwarancje, odpowiedzialność'
+          ,
+            'platform.ios': 'iPhone & iPad',
+            'platform.mobile': 'Telefon Android',
+            'platform.firetv': 'Fire TV Stick'
           },
           ru: {
             'hero.subtitle': 'Профессиональный нейтральный медиаплеер для Fire TV, Android TV и мобильных устройств. Используйте свой легальный источник контента.',
@@ -1496,6 +1535,10 @@
             'faq.a7': 'BurgTV бесплатен. Опциональная подписка Premium доступна на <a href="https://app.burgtv.com">app.burgtv.com</a> для тех, кто хочет облачные избранные, синхронизацию между устройствами и приоритетную поддержку. 7-дневный бесплатный пробный период. Premium НЕ требуется для использования приложения.',
             'faq.a10': 'Если вы считаете, что приложение используется неправомерно для доступа к контенту, защищённому авторским правом, свяжитесь с нами на <a href="mailto:info@burgtv.com">info@burgtv.com</a> с необходимой информацией. Ознакомьтесь с нашей <a href="https://app.burgtv.com/legal/dmca.html">Политикой DMCA</a>.',
             'leg.tos.sub': 'Правила использования, гарантии, ответственность'
+          ,
+            'platform.ios': 'iPhone & iPad',
+            'platform.mobile': 'Android Смартфон',
+            'platform.firetv': 'Fire TV Stick'
           },
           ar: {
             'hero.subtitle': 'مشغل وسائط محايد احترافي لـ Fire TV و Android TV والهواتف المحمولة. أحضر مصدر الوسائط المشروع الخاص بك.',
@@ -1576,6 +1619,10 @@
             'faq.a7': 'BurgTV مجاني. اشتراك Premium اختياري متوفر على <a href="https://app.burgtv.com">app.burgtv.com</a> لمن يرغب في المفضلات السحابية ومزامنة أجهزة متعددة ودعم ذي أولوية. تجربة مجانية لمدة 7 أيام. Premium ليس ضرورياً لاستخدام التطبيق.',
             'faq.a10': 'إذا كنت تعتقد أن التطبيق يُستخدم بشكل غير لائق للوصول إلى محتوى محمي بحقوق الطبع والنشر، تواصل معنا على <a href="mailto:info@burgtv.com">info@burgtv.com</a> مع المعلومات اللازمة. راجع <a href="https://app.burgtv.com/legal/dmca.html">سياسة DMCA</a> الخاصة بنا.',
             'leg.tos.sub': 'قواعد الاستخدام، الضمانات، المسؤوليات'
+          ,
+            'platform.ios': 'iPhone & iPad',
+            'platform.mobile': 'هاتف أندرويد',
+            'platform.firetv': 'Fire TV Stick'
           }
         };
         function dlSetLang(l) {
