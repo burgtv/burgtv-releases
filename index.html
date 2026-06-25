@@ -316,9 +316,37 @@
             line-height: 1.5;
         }
         .warn strong { color: var(--accent); }
+        /* === Barra superiore + footer condivisi (coerenti con la home) === */
+        .bv-nav{position:sticky;top:0;background:rgba(10,10,20,.95);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(255,255,255,.06);z-index:90}
+        .bv-nav-inner{display:flex;align-items:center;gap:24px;height:60px;max-width:1200px;margin:0 auto;padding:0 18px}
+        .bv-brand{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+        .bv-brand img{height:34px;width:auto}
+        .bv-links{display:flex;align-items:center;gap:24px}
+        .bv-links a{color:#d9def7;text-decoration:none;font-size:15px;font-weight:500;transition:color .2s}
+        .bv-links a:hover{color:var(--accent)}
+        .bv-footer{border-top:1px solid rgba(255,255,255,.06);padding:24px 18px;background:#0e0e18;margin-top:48px}
+        .bv-foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;max-width:1200px;margin:0 auto}
+        .bv-foot-brand img{height:30px;width:auto;display:block}
+        .bv-foot-links{display:flex;gap:18px;flex-wrap:wrap}
+        .bv-foot-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .25s}
+        .bv-foot-links a:hover{color:var(--accent)}
+        .bv-foot-inner small{color:var(--muted2);font-size:13px}
+        @media (max-width:720px){.bv-links{gap:14px}.bv-links a{font-size:13px}.bv-nav-inner{gap:14px;height:54px;padding:0 14px}.bv-foot-inner{flex-direction:column;text-align:center;justify-content:center}}
+        @media (max-width:420px){.bv-links{gap:10px}.bv-links a{font-size:12px}.bv-brand img{height:28px}}
     </style>
 </head>
 <body>
+
+    <header class="bv-nav">
+      <div class="bv-nav-inner">
+        <a class="bv-brand" href="https://burgtv.com"><img src="logo.png" alt="BurgTV"></a>
+        <nav class="bv-links">
+          <a href="https://burgtv.com/#features" data-i18n="nav.features">Funzioni</a>
+          <a href="https://download.burgtv.com" data-i18n="nav.devices">Download</a>
+          <a href="https://burgtv.com/#faq" data-i18n="nav.faq">FAQ</a>
+        </nav>
+      </div>
+    </header>
 
     <div class="lang-switch">
         <button id="btn-it" class="active">IT</button>
@@ -338,7 +366,6 @@
 
         <!-- HERO -->
         <div class="hero">
-            <img src="logo.png" alt="BurgTV" class="logo">
             <p class="subtitle" style="margin-top:16px;font-size:1.2rem;max-width:680px" data-i18n="hero.subtitle">Professional neutral media player for Fire TV, Google TV / Android TV, and mobile. Bring your own legitimate media source.</p>
         </div>
 
@@ -667,23 +694,33 @@
             </div>
         </section>
 
-        <!-- FOOTER -->
-        <footer>
-            <p>© 2026 BurgTV — Developed in Switzerland 🇨🇭</p>
-            <p>
-                <a href="https://burgtv.com">burgtv.com</a> ·
-                <a href="https://app.burgtv.com">app.burgtv.com</a> ·
-                <a href="https://github.com/burgtv/burgtv-releases/releases">GitHub Releases</a> ·
-                <a href="mailto:info@burgtv.com">info@burgtv.com</a>
-            </p>
-            <p style="margin-top: 16px;">BurgTV is a neutral media player. It does not host, distribute, or provide any content.</p>
+        <!-- FOOTER (coerente con la home) -->
+        <footer class="bv-footer">
+          <div class="bv-foot-inner">
+            <a class="bv-foot-brand" href="https://burgtv.com"><img src="logo.png" alt="BurgTV"></a>
+            <div class="bv-foot-links">
+              <a href="https://burgtv.com/legal/" data-i18n="footer.legal">Legal Hub</a>
+              <a href="https://burgtv.com/legal/terms.html" data-i18n="footer.terms">Termini e Condizioni</a>
+              <a href="https://burgtv.com/legal/privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+              <a href="mailto:info@burgtv.com" data-i18n="footer.contact">Contatti</a>
+            </div>
+            <small>© <span id="bv-y">2026</span> BurgTV – burgtv.com</small>
+          </div>
         </footer>
+        <script>try{document.getElementById('bv-y').textContent=new Date().getFullYear();}catch(e){}</script>
 
     </div>
 
     <script>
         const DL_DICT = {
           it: {
+            'nav.features': 'Funzioni',
+            'nav.devices': 'Download',
+            'nav.faq': 'FAQ',
+            'footer.legal': 'Legal Hub',
+            'footer.terms': 'Termini e Condizioni',
+            'footer.privacy': 'Privacy Policy',
+            'footer.contact': 'Contatti',
             'hero.subtitle': "Media player neutro professionale per Fire TV, Google TV / Android TV e mobile. Porti la tua sorgente multimediale legittima.",
             'dl.btn': 'Scarica APK',
             'warn': "<strong>⚠️ Importante:</strong> BurgTV è solo un media player. Devi fornire la tua sorgente multimediale legittima (Xtream Codes, playlist M3U da abbonamento IPTV legale, o Plex/Jellyfin/Emby self-hosted).",
@@ -772,6 +809,13 @@
             'platform.firetv': 'Fire TV / Google TV'
           },
           en: {
+            'nav.features': 'Features',
+            'nav.devices': 'Download',
+            'nav.faq': 'FAQ',
+            'footer.legal': 'Legal Hub',
+            'footer.terms': 'Terms & Conditions',
+            'footer.privacy': 'Privacy Policy',
+            'footer.contact': 'Contact',
             'hero.subtitle': "Professional neutral media player for Fire TV, Google TV / Android TV, and mobile. Bring your own legitimate media source.",
             'dl.btn': 'Download APK',
             'warn': "<strong>⚠️ Important:</strong> BurgTV is a media player only. You must provide your own legitimate media source (Xtream Codes, M3U playlist from a licensed IPTV subscription, or self-hosted Plex/Jellyfin/Emby).",
@@ -860,6 +904,13 @@
             'platform.firetv': 'Fire TV / Google TV'
           },
           de: {
+            'nav.features': 'Funktionen',
+            'nav.devices': 'Download',
+            'nav.faq': 'FAQ',
+            'footer.legal': 'Legal Hub',
+            'footer.terms': 'AGB',
+            'footer.privacy': 'Datenschutz',
+            'footer.contact': 'Kontakt',
             'hero.subtitle': "Professioneller neutraler Media Player für Fire TV, Google TV / Android TV und Mobile. Bringen Sie Ihre eigene legitime Medienquelle mit.",
             'dl.btn': 'APK herunterladen',
             'warn': "<strong>⚠️ Wichtig:</strong> BurgTV ist nur ein Media Player. Sie müssen Ihre eigene legitime Medienquelle bereitstellen (Xtream Codes, M3U-Playlist eines lizenzierten IPTV-Abonnements oder selbst gehostetes Plex/Jellyfin/Emby).",
@@ -948,6 +999,13 @@
             'platform.firetv': 'Fire TV / Google TV'
           },
           es: {
+            'nav.features': 'Funciones',
+            'nav.devices': 'Descargar',
+            'nav.faq': 'FAQ',
+            'footer.legal': 'Legal Hub',
+            'footer.terms': 'Términos y Condiciones',
+            'footer.privacy': 'Privacidad',
+            'footer.contact': 'Contacto',
             'hero.subtitle': "Reproductor multimedia neutral profesional para Fire TV, Google TV / Android TV y móvil. Trae tu propia fuente multimedia legítima.",
             'dl.btn': 'Descargar APK',
             'warn': "<strong>⚠️ Importante:</strong> BurgTV es solo un reproductor multimedia. Debes proporcionar tu propia fuente legítima (Xtream Codes, lista M3U de suscripción IPTV legal, o Plex/Jellyfin/Emby auto-alojado).",
@@ -1036,6 +1094,13 @@
             'platform.firetv': 'Fire TV / Google TV'
           },
           fr: {
+            'nav.features': 'Fonctions',
+            'nav.devices': 'Télécharger',
+            'nav.faq': 'FAQ',
+            'footer.legal': 'Legal Hub',
+            'footer.terms': 'Conditions',
+            'footer.privacy': 'Confidentialité',
+            'footer.contact': 'Contact',
             'hero.subtitle': "Lecteur multimédia neutre professionnel pour Fire TV, Google TV / Android TV et mobile. Apportez votre propre source multimédia légitime.",
             'dl.btn': 'Télécharger APK',
             'warn': "<strong>⚠️ Important :</strong> BurgTV n'est qu'un lecteur multimédia. Vous devez fournir votre propre source légitime (Xtream Codes, playlist M3U d'un abonnement IPTV licencié, ou Plex/Jellyfin/Emby auto-hébergé).",
@@ -1124,6 +1189,13 @@
             'platform.firetv': 'Fire TV / Google TV'
           },
           pt: {
+            'nav.features': 'Funções',
+            'nav.devices': 'Baixar',
+            'nav.faq': 'FAQ',
+            'footer.legal': 'Legal Hub',
+            'footer.terms': 'Termos e Condições',
+            'footer.privacy': 'Privacidade',
+            'footer.contact': 'Contato',
             'hero.subtitle': 'Media player neutro profissional para Fire TV, Google TV / Android TV e mobile. Traga a sua fonte de mídia legítima.',
             'dl.btn': 'Baixar APK',
             'warn': '<strong>⚠️ Importante:</strong> BurgTV é apenas um media player. Deve fornecer a sua fonte de mídia legítima (Xtream Codes, playlist M3U de assinatura IPTV legal, ou Plex/Jellyfin/Emby auto-hospedado).',
@@ -1208,6 +1280,13 @@
             'platform.firetv': 'Fire TV / Google TV'
           },
           tr: {
+            'nav.features': 'Özellikler',
+            'nav.devices': 'İndir',
+            'nav.faq': 'FAQ',
+            'footer.legal': 'Legal Hub',
+            'footer.terms': 'Şartlar ve Koşullar',
+            'footer.privacy': 'Gizlilik',
+            'footer.contact': 'İletişim',
             'hero.subtitle': 'Fire TV, Google TV / Android TV ve mobil için profesyonel tarafsız medya oynatıcı. Yasal medya kaynağınızı getirin.',
             'dl.btn': 'APK İndir',
             'warn': '<strong>⚠️ Önemli:</strong> BurgTV sadece bir medya oynatıcısıdır. Kendi yasal medya kaynağınızı sağlamanız gerekir (Xtream Codes, yasal IPTV aboneliğinden M3U playlist, veya Plex/Jellyfin/Emby self-hosted).',
@@ -1292,6 +1371,13 @@
             'platform.firetv': 'Fire TV / Google TV'
           },
           nl: {
+            'nav.features': 'Functies',
+            'nav.devices': 'Downloaden',
+            'nav.faq': 'FAQ',
+            'footer.legal': 'Legal Hub',
+            'footer.terms': 'Voorwaarden',
+            'footer.privacy': 'Privacy',
+            'footer.contact': 'Contact',
             'hero.subtitle': 'Professionele neutrale media player voor Fire TV, Google TV / Android TV en mobiel. Breng uw eigen legitieme mediabron mee.',
             'dl.btn': 'APK downloaden',
             'warn': '<strong>⚠️ Belangrijk:</strong> BurgTV is alleen een media player. U moet uw eigen legitieme mediabron leveren (Xtream Codes, M3U-playlist van legaal IPTV-abonnement, of Plex/Jellyfin/Emby self-hosted).',
@@ -1376,6 +1462,13 @@
             'platform.firetv': 'Fire TV / Google TV'
           },
           pl: {
+            'nav.features': 'Funkcje',
+            'nav.devices': 'Pobierz',
+            'nav.faq': 'FAQ',
+            'footer.legal': 'Legal Hub',
+            'footer.terms': 'Regulamin',
+            'footer.privacy': 'Prywatność',
+            'footer.contact': 'Kontakt',
             'hero.subtitle': 'Profesjonalny neutralny media player na Fire TV, Google TV / Android TV i urządzenia mobilne. Przynieś własne legalne źródło multimediów.',
             'dl.btn': 'Pobierz APK',
             'warn': '<strong>⚠️ Ważne:</strong> BurgTV jest tylko media playerem. Musisz dostarczyć własne legalne źródło multimediów (Xtream Codes, playlistę M3U z legalnej subskrypcji IPTV, lub Plex/Jellyfin/Emby self-hosted).',
@@ -1460,6 +1553,13 @@
             'platform.firetv': 'Fire TV / Google TV'
           },
           ru: {
+            'nav.features': 'Функции',
+            'nav.devices': 'Скачать',
+            'nav.faq': 'FAQ',
+            'footer.legal': 'Legal Hub',
+            'footer.terms': 'Условия',
+            'footer.privacy': 'Конфиденциальность',
+            'footer.contact': 'Контакты',
             'hero.subtitle': 'Профессиональный нейтральный медиаплеер для Fire TV, Google TV / Android TV и мобильных устройств. Используйте свой легальный источник контента.',
             'dl.btn': 'Скачать APK',
             'warn': '<strong>⚠️ Важно:</strong> BurgTV — это только медиаплеер. Вы должны предоставить свой легальный источник контента (Xtream Codes, M3U-плейлист от легальной IPTV-подписки, или Plex/Jellyfin/Emby self-hosted).',
@@ -1544,6 +1644,13 @@
             'platform.firetv': 'Fire TV / Google TV'
           },
           ar: {
+            'nav.features': 'الميزات',
+            'nav.devices': 'تحميل',
+            'nav.faq': 'الأسئلة الشائعة',
+            'footer.legal': 'Legal Hub',
+            'footer.terms': 'الشروط والأحكام',
+            'footer.privacy': 'سياسة الخصوصية',
+            'footer.contact': 'اتصل بنا',
             'hero.subtitle': 'مشغل وسائط محايد احترافي لـ Fire TV و Google TV / Android TV والهواتف المحمولة. أحضر مصدر الوسائط المشروع الخاص بك.',
             'dl.btn': 'تنزيل APK',
             'warn': '<strong>⚠️ هام:</strong> BurgTV هو فقط مشغل وسائط. يجب عليك توفير مصدر الوسائط المشروع الخاص بك (Xtream Codes، قائمة تشغيل M3U من اشتراك IPTV قانوني، أو Plex/Jellyfin/Emby المستضاف ذاتياً).',
