@@ -8,7 +8,7 @@
   IC.screens='<rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/>';
   IC.devices2='<rect x="2" y="5" width="13" height="10" rx="1.5"/><rect x="16" y="8" width="6" height="11" rx="1.5"/><path d="M6 18h6"/>';
   IC.download='<path d="M12 3v12"/><path d="M8 11l4 4 4-4"/><path d="M5 20h14"/>';
-  var NAV=[['menu.home',HOME,'home'],['menu.features',HOME+'/#features','features'],['screens',HOME+'/#screens','screens','ft'],['devices',HOME+'/#devices','devices2','ft'],['download',DL,'download','ft'],['menu.faq',HOME+'/legal/faq.html','faq'],null,['menu.legal',HOME+'/legal/','legal'],['menu.terms',HOME+'/legal/terms.html','terms'],['menu.privacy',HOME+'/legal/privacy.html','privacy'],null,['menu.login',APP+'/login.html','login'],['menu.contact','mailto:info@burgtv.com','contact']];
+  var NAV=[['menu.home',HOME,'home'],['menu.features',HOME+'/#features','features'],['screens',HOME+'/#screens','screens','ft'],['devices',HOME+'/#devices','devices2','ft'],['download',DL,'download','ft'],['menu.faq',HOME+'/legal/faq','faq'],null,['menu.legal',HOME+'/legal/','legal'],['menu.terms',HOME+'/legal/terms','terms'],['menu.privacy',HOME+'/legal/privacy','privacy'],null,['menu.login',APP+'/login.html','login'],['menu.contact','mailto:info@burgtv.com','contact']];
   // testi footer multi-colonna (allineato alla home Astro)
   var FT={
     it:{prod:"Prodotto",res:"Risorse",leg:"Legale",screens:"Anteprime",devices:"Dispositivi",download:"Scarica",start:"Inizia ora",support:"Supporto",cookies:"Cookie",madein:"Sviluppato in Svizzera",tryp:"Prova Premium",brand:"Il media player premium per le tue playlist M3U e Xtream. BurgTV non fornisce contenuti: solo l'app per riprodurli."},
@@ -48,7 +48,7 @@
   function render(){var l=lang();document.querySelectorAll('[data-bvk]').forEach(function(e){var k=e.getAttribute('data-bvk');var v=(I18N[l]&&I18N[l][k])||I18N.it[k];if(v!=null)e.textContent=v;});document.querySelectorAll('[data-ftk]').forEach(function(e){var k=e.getAttribute('data-ftk');var v=(FT[l]&&FT[l][k])||FT.it[k];if(v!=null)e.textContent=v;});var cc=CC[l]||CC.it,set=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v;};set('bv-ck-txt',cc[0]);set('bv-ck-link',cc[1]);set('bv-ck-btn',cc[2]);}
   function cookieOk(){try{if(localStorage.getItem('bv_cookie_ok')==='1')return true;}catch(e){}return /(?:^|;\s*)bv_cookie_ok=1/.test(document.cookie);}
   function acceptCookie(){try{localStorage.setItem('bv_cookie_ok','1');}catch(e){}var d=(location.hostname.endsWith('.burgtv.com')||location.hostname==='burgtv.com')?'; domain=.burgtv.com':'';document.cookie='bv_cookie_ok=1; max-age=31536000; path=/'+d+'; SameSite=Lax';var b=document.getElementById('bv-cookie');if(b)b.parentNode.removeChild(b);}
-  function cookieBanner(){if(cookieOk()||document.getElementById('bv-cookie'))return;var b=document.createElement('div');b.className='bv-cookie';b.id='bv-cookie';b.setAttribute('role','dialog');b.setAttribute('aria-live','polite');b.innerHTML='<p><span id="bv-ck-txt"></span> <a id="bv-ck-link" href="'+HOME+'/legal/cookies.html"></a></p><button type="button" id="bv-ck-btn"></button>';document.body.appendChild(b);b.querySelector('#bv-ck-btn').addEventListener('click',acceptCookie);}
+  function cookieBanner(){if(cookieOk()||document.getElementById('bv-cookie'))return;var b=document.createElement('div');b.className='bv-cookie';b.id='bv-cookie';b.setAttribute('role','dialog');b.setAttribute('aria-live','polite');b.innerHTML='<p><span id="bv-ck-txt"></span> <a id="bv-ck-link" href="'+HOME+'/legal/cookies"></a></p><button type="button" id="bv-ck-btn"></button>';document.body.appendChild(b);b.querySelector('#bv-ck-btn').addEventListener('click',acceptCookie);}
   function placeLang(){var slot=document.getElementById('bv-nav-r');if(!slot)return false;var dd=document.querySelector('.bv-lang-dd');if(dd&&dd.parentElement!==slot){dd.style.position='static';dd.style.top=dd.style.right=dd.style.left=dd.style.bottom=dd.style.width='';slot.appendChild(dd);return true;}return dd&&dd.parentElement===slot;}
   function build(){
     if(document.getElementById('bv-chrome-header'))return;
@@ -57,7 +57,7 @@
     var main=document.createElement('main');main.className='bv-main'+(centered?' bv-center':'');
     while(document.body.firstChild){main.appendChild(document.body.firstChild);}
     var head=document.createElement('header');head.className='bv-nav';head.id='bv-chrome-header';
-    head.innerHTML='<div class="bv-nav-inner"><div class="bv-nav-l"><button class="bv-mtoggle" id="bv-mtoggle" aria-label="Menu"><span></span><span></span><span></span></button><a class="bv-brand" href="'+HOME+'"><img src="'+LOGO+'" alt="BurgTV"></a></div><nav class="bv-links"><a href="'+HOME+'/#features" data-bvk="nav.features"></a><a href="'+HOME+'/#screens" data-ftk="screens"></a><a href="'+HOME+'/#devices" data-ftk="devices"></a><a href="'+DL+'" data-ftk="download"></a><a href="'+HOME+'/legal/faq.html" data-bvk="nav.faq"></a></nav><div class="bv-nav-r" id="bv-nav-r"></div></div>';
+    head.innerHTML='<div class="bv-nav-inner"><div class="bv-nav-l"><button class="bv-mtoggle" id="bv-mtoggle" aria-label="Menu"><span></span><span></span><span></span></button><a class="bv-brand" href="'+HOME+'"><img src="'+LOGO+'" alt="BurgTV"></a></div><nav class="bv-links"><a href="'+HOME+'/#features" data-bvk="nav.features"></a><a href="'+HOME+'/#screens" data-ftk="screens"></a><a href="'+HOME+'/#devices" data-ftk="devices"></a><a href="'+DL+'" data-ftk="download"></a><a href="'+HOME+'/legal/faq" data-bvk="nav.faq"></a></nav><div class="bv-nav-r" id="bv-nav-r"></div></div>';
     var side=document.createElement('aside');side.className='bv-sidebar';side.id='bv-sidebar';
     var LN=[['it','Italiano'],['en','English'],['de','Deutsch'],['es','Español'],['fr','Français'],['pt','Português'],['tr','Türkçe'],['nl','Nederlands'],['pl','Polski'],['ru','Русский'],['ar','العربية']];
     var chev='<svg class="bv-sb-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
@@ -82,9 +82,9 @@
         +'<li><a href="'+APP+'/login.html" data-bvk="menu.login"></a></li>'
         +'<li><a href="mailto:info@burgtv.com" data-ftk="support"></a></li></ul></div>'
       +'<div class="bv-foot-col"><h4 data-ftk="leg"></h4><ul>'
-        +'<li><a href="'+HOME+'/legal/terms.html" data-bvk="footer.terms"></a></li>'
-        +'<li><a href="'+HOME+'/legal/privacy.html" data-bvk="footer.privacy"></a></li>'
-        +'<li><a href="'+HOME+'/legal/cookies.html" data-ftk="cookies"></a></li>'
+        +'<li><a href="'+HOME+'/legal/terms" data-bvk="footer.terms"></a></li>'
+        +'<li><a href="'+HOME+'/legal/privacy" data-bvk="footer.privacy"></a></li>'
+        +'<li><a href="'+HOME+'/legal/cookies" data-ftk="cookies"></a></li>'
         +'<li><a href="'+HOME+'/legal/" data-bvk="footer.legal"></a></li></ul></div>'
       +'</div>'
       +'<div class="bv-foot-bottom"><small>\u00a9 '+(new Date().getFullYear())+' BurgTV \u00b7 <span data-ftk="madein"></span> '+chSvg+'</small><small><a href="mailto:info@burgtv.com">info@burgtv.com</a></small></div>';
