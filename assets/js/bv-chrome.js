@@ -94,8 +94,18 @@
     // se loggato, niente CTA "Prova Premium" nel footer (l'utente ha gia un account)
     try{ if(localStorage.getItem('session_token')){ var fc=foot.querySelector('.bv-foot-cta'); if(fc)fc.style.display='none'; } }catch(e){}
     // Turnstile: spostando il contenuto in .bv-main l'iframe si rompe -> lo ri-renderizziamo
-    function fixTurnstile(){try{var c=document.querySelector('.cf-turnstile');if(!c||typeof window.turnstile==='undefined')return;if(c.querySelector('iframe'))return;try{window.turnstile.render(c);return;}catch(e){}var n=c.cloneNode(false);n.innerHTML='';if(c.parentNode){c.parentNode.replaceChild(n,c);}try{window.turnstile.render(n);}catch(e){}}catch(e){}}
-    setTimeout(fixTurnstile,500);setTimeout(fixTurnstile,1500);setTimeout(fixTurnstile,3000);
+    // Turnstile: lo spostamento in .bv-main rompe l'iframe -> lo ri-renderizziamo (polling finche turnstile e pronto)
+    (function(){var done=false;var iv=setInterval(function(){
+      if(done)return;
+      try{
+        var c=document.querySelector('.cf-turnstile');
+        if(!c||typeof window.turnstile==='undefined')return;
+        if(c.querySelector('iframe')){done=true;clearInterval(iv);return;}
+        try{ window.turnstile.render(c); }
+        catch(e){ var n=c.cloneNode(false); n.innerHTML=''; if(c.parentNode){c.parentNode.replaceChild(n,c);} try{ window.turnstile.render(n); }catch(e2){} }
+      }catch(e){}
+    },500);
+    setTimeout(function(){done=true;clearInterval(iv);},12000);})();
     cookieBanner();render();
     var mt=document.getElementById('bv-mtoggle');
     function toggle(){mt.classList.toggle('active');side.classList.toggle('active');ov.classList.toggle('active');}
