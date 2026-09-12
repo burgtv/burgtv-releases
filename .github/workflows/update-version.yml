@@ -55,6 +55,10 @@ jobs:
           fi
           echo "Extracted versionCode: $VERSION_CODE"
           echo "version_code=$VERSION_CODE" >> $GITHUB_OUTPUT
+          # SHA-256 dell'APK: dalla 1.2.12 l'app verifica l'integrita' del download prima di installare
+          SHA256=$(sha256sum /tmp/app.apk | cut -d' ' -f1)
+          echo "Extracted sha256: $SHA256"
+          echo "sha256=$SHA256" >> $GITHUB_OUTPUT
 
       - name: Update version.json
         run: |
@@ -63,6 +67,7 @@ jobs:
               "version_code": ${{ steps.vcode.outputs.version_code }},
               "version_name": "${{ steps.version.outputs.version_name }}",
               "download_url": "${{ steps.apk.outputs.url }}",
+              "sha256": "${{ steps.vcode.outputs.sha256 }}",
               "changelog": "${{ steps.version.outputs.changelog }}",
               "mandatory": false,
               "min_version_code": 1
