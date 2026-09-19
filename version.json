@@ -1,8 +1,8 @@
 {
-  "version_code": 172,
-  "version_name": "1.2.16",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.2.16/burgtv-1.2.16-release.apk",
-  "sha256": "e9fbf0880b43e5cfa511af15547d591bd2af0e7a81aa3d0c2627ca77a5fc6f59",
+  "version_code": 173,
+  "version_name": "1.2.17",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.2.17/burgtv-1.2.17-release.apk",
+  "sha256": "f2d084046e2f4615c9fe33ade1535211f89f6ebbfdc1a9d6999c68f66bf6f671",
   "changelog": "Small improvements and bug fixes ",
   "mandatory": false,
   "min_version_code": 1
