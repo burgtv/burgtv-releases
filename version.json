@@ -1,9 +1,9 @@
 {
-  "version_code": 179,
-  "version_name": "1.3.3",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.3.3/burgtv-1.3.3-release.apk",
-  "sha256": "26d4b0fee4fbb6abb915bde5b642faaa1d37162af967f6f8fa7d5d2096551809",
-  "changelog": "Small improvements and bug fixes: faster Similar titles, smoother poster grid and focus, 8 new languages, playback speed, TV guide options. ",
+  "version_code": 180,
+  "version_name": "1.3.4",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.3.4/burgtv-1.3.4-release.apk",
+  "sha256": "a70b8a543dd5caf38bbfb5753008c9411d1f30bdfa9cefa85ea2128b0683a1dc",
+  "changelog": "Timeshift (Premium), HLS recording, share recordings by QR code, playlist order, subtitles via our server, terms and privacy screen, fixes. ",
   "mandatory": false,
   "min_version_code": 1
 }
