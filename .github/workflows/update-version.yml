@@ -77,6 +77,12 @@ jobs:
           # Pretty print the JSON
           cat version.json | jq '.' > version_temp.json && mv version_temp.json version.json
 
+          # Novita' per lingua (dalla 1.3.5 l'app mostra il testo nella sua lingua, ripiego su
+          # "changelog"): se c'e' changelog_i18n.json lo si unisce a version.json
+          if [ -f changelog_i18n.json ]; then
+            jq --slurpfile i18n changelog_i18n.json '. + {changelog_i18n: $i18n[0]}' version.json > version_temp.json && mv version_temp.json version.json
+          fi
+
           echo "Updated version.json:"
           cat version.json
 
