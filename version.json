@@ -1,9 +1,32 @@
 {
-  "version_code": 180,
-  "version_name": "1.3.4",
-  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.3.4/burgtv-1.3.4-release.apk",
-  "sha256": "a70b8a543dd5caf38bbfb5753008c9411d1f30bdfa9cefa85ea2128b0683a1dc",
-  "changelog": "Timeshift (Premium), HLS recording, share recordings by QR code, playlist order, subtitles via our server, terms and privacy screen, fixes. ",
+  "version_code": 181,
+  "version_name": "1.3.5",
+  "download_url": "https://github.com/burgtv/burgtv-releases/releases/download/v1.3.5/burgtv-1.3.5-release.apk",
+  "sha256": "e969d2b138485d76cd1731e9579ed47392a2c48a653672f4cd8e84215b50a932",
+  "changelog": "Improvements and bug fixes. ",
   "mandatory": false,
-  "min_version_code": 1
+  "min_version_code": 1,
+  "changelog_i18n": {
+    "it": "Miglioramenti e risoluzioni di bug.",
+    "en": "Improvements and bug fixes.",
+    "es": "Mejoras y corrección de errores.",
+    "fr": "Améliorations et corrections de bugs.",
+    "de": "Verbesserungen und Fehlerbehebungen.",
+    "pt-BR": "Melhorias e correções de bugs.",
+    "nl": "Verbeteringen en bugfixes.",
+    "pl": "Ulepszenia i poprawki błędów.",
+    "tr": "İyileştirmeler ve hata düzeltmeleri.",
+    "ar": "تحسينات وإصلاحات للأخطاء.",
+    "zh-CN": "功能改进和问题修复。",
+    "ru": "Улучшения и исправления ошибок.",
+    "sq": "Përmirësime dhe rregullime gabimesh.",
+    "bg": "Подобрения и отстранени грешки.",
+    "cs": "Vylepšení a opravy chyb.",
+    "hr": "Poboljšanja i ispravci pogrešaka.",
+    "hu": "Fejlesztések és hibajavítások.",
+    "ja": "改善とバグ修正。",
+    "ko": "개선 사항 및 버그 수정.",
+    "ro": "Îmbunătățiri și remedieri de erori.",
+    "sr": "Poboljšanja i ispravke grešaka."
+  }
 }
