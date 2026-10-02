@@ -3,12 +3,12 @@
   "redirects": [
     {
       "source": "/tv.apk",
-      "destination": "https://github.com/burgtv/burgtv-releases/releases/download/v1.2.11/burgtv-1.2.11-release.apk",
+      "destination": "https://github.com/burgtv/burgtv-releases/releases/download/v1.3.5/burgtv-1.3.5-release.apk",
       "permanent": false
     },
     {
       "source": "/tv",
-      "destination": "https://github.com/burgtv/burgtv-releases/releases/download/v1.2.11/burgtv-1.2.11-release.apk",
+      "destination": "https://github.com/burgtv/burgtv-releases/releases/download/v1.3.5/burgtv-1.3.5-release.apk",
       "permanent": false
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "source": "/apk",
-      "destination": "https://github.com/burgtv/burgtv-releases/releases/download/v1.2.11/burgtv-1.2.11-release.apk",
+      "destination": "https://github.com/burgtv/burgtv-releases/releases/download/v1.3.5/burgtv-1.3.5-release.apk",
       "permanent": false
     },
     {
