@@ -24,6 +24,9 @@
     ar: { flag: '🇸🇦', code: 'AR', name: 'العربية' },
   };
 
+  // Etichetta accessibile del selettore, nella lingua attiva
+  const LABEL = { it: 'Lingua', en: 'Language', de: 'Sprache', es: 'Idioma', fr: 'Langue', pt: 'Idioma', tr: 'Dil', nl: 'Taal', pl: 'Język', ru: 'Язык', ar: 'اللغة' };
+
   // Inject dropdown CSS once
   function injectStyles() {
     if (document.getElementById('burgtv-lang-dd-styles')) return;
@@ -35,12 +38,15 @@
       .bv-lang-dd-trigger .bv-code { font-weight: 700; letter-spacing: .03em; }
       .bv-lang-dd-trigger .bv-chev { width: 11px; height: 11px; transition: transform 0.2s; opacity: 0.7; flex-shrink: 0; }
       .bv-lang-dd-trigger[aria-expanded="true"] .bv-chev { transform: rotate(180deg); }
-      .bv-lang-dd-menu { position: absolute; top: calc(100% + 8px); right: 0; width: 312px; max-width: calc(100vw - 24px); max-height: 360px; overflow-y: auto; background: rgba(14,11,24,0.97); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 8px; list-style: none; margin: 0; opacity: 0; pointer-events: none; transform: translateY(-8px) scale(.98); transform-origin: top right; transition: opacity .2s, transform .2s; z-index: 99999; box-shadow: 0 18px 50px -12px rgba(0,0,0,0.6); display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
-      .bv-lang-dd-menu.open { opacity: 1; pointer-events: auto; transform: none; }
-      .bv-lang-dd-opt { display: flex; align-items: center; gap: 9px; padding: 9px 10px; border: 1px solid transparent; border-radius: 10px; cursor: pointer; font-size: 13.5px; color: #cfcde0; transition: background .15s, border-color .15s, color .15s; }
-      .bv-lang-dd-opt:hover { background: rgba(255,255,255,0.07); color: #fff; }
+      .bv-lang-dd-menu { position: absolute; top: calc(100% + 8px); right: 0; width: 312px; max-width: calc(100vw - 24px); max-height: 360px; overflow-y: auto; background: rgba(14,11,24,0.97); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 8px; list-style: none; margin: 0; opacity: 0; pointer-events: none; transform: translateY(-8px) scale(.98); transform-origin: top right; visibility: hidden; transition: opacity .2s, transform .2s, visibility 0s linear .2s; z-index: 99999; box-shadow: 0 18px 50px -12px rgba(0,0,0,0.6); display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+      .bv-lang-dd-menu.open { opacity: 1; pointer-events: auto; transform: none; visibility: visible; transition: opacity .2s, transform .2s, visibility 0s; }
+      .bv-lang-dd-menu li { list-style: none; margin: 0; padding: 0; }
+      [dir=rtl] .bv-lang-dd-menu { right: auto; left: 0; transform-origin: top left; }
+      .bv-lang-dd-opt { display: flex; align-items: center; gap: 9px; width: 100%; min-height: 40px; padding: 9px 10px; border: 1px solid transparent; border-radius: 10px; background: transparent; font: inherit; text-align: start; cursor: pointer; font-size: 13.5px; color: #cfcde0; transition: background .15s, border-color .15s, color .15s; }
+      .bv-lang-dd-opt:hover, .bv-lang-dd-opt:focus-visible { background: rgba(255,255,255,0.07); color: #fff; }
+      .bv-lang-dd-opt:focus-visible, .bv-lang-dd-trigger:focus-visible { outline: 2px solid #e06bb0; outline-offset: 2px; }
       .bv-lang-dd-opt.active { background: rgba(185,74,142,0.16); border-color: rgba(185,74,142,0.4); color: #fff; font-weight: 600; }
-      .bv-lang-dd-opt .bv-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 30px; padding: 2px 6px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.10); background: rgba(185,74,142,0.12); color: #e06bb0; font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+      .bv-lang-dd-opt .bv-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 30px; padding: 2px 6px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.10); background: rgba(185,74,142,0.12); color: #e06bb0; font-size: 12px; font-weight: 700; letter-spacing: .04em; }
       .bv-lang-dd-opt.active .bv-badge { background: linear-gradient(135deg,#d85aa3,#B94A8E 45%,#7B4397); color: #fff; border-color: transparent; }
       .bv-lang-dd-opt .bv-name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
       .bv-lang-replaced { display: none !important; }
@@ -108,17 +114,17 @@
     wrap.className = 'bv-lang-dd';
     const meta = LANG_META[currentLang] || LANG_META.it;
     wrap.innerHTML = `
-      <button class="bv-lang-dd-trigger" aria-expanded="false" aria-haspopup="listbox" aria-label="Language">
+      <button type="button" class="bv-lang-dd-trigger" aria-expanded="false" aria-controls="bv-lang-dd-menu" aria-label="${meta.code}, ${LABEL[currentLang] || 'Language'}: ${meta.name}">
         <svg class="bv-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18 M12 3c2.6 2.7 2.6 15.3 0 18 M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>
         <span class="bv-code">${meta.code}</span>
         <svg class="bv-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5L6 8l3.5-3.5"/></svg>
       </button>
-      <ul class="bv-lang-dd-menu" role="listbox">
+      <ul class="bv-lang-dd-menu" id="bv-lang-dd-menu" aria-label="${LABEL[currentLang] || 'Language'}">
         ${Object.entries(LANG_META).map(([l, m]) => `
-          <li class="bv-lang-dd-opt${l === currentLang ? ' active' : ''}" data-lang="${l}" role="option">
-            <span class="bv-badge">${m.code}</span>
+          <li><button type="button" class="bv-lang-dd-opt${l === currentLang ? ' active' : ''}" data-lang="${l}" lang="${l}" aria-current="${l === currentLang ? 'true' : 'false'}">
+            <span class="bv-badge" aria-hidden="true">${m.code}</span>
             <span class="bv-name">${m.name}</span>
-          </li>
+          </button></li>
         `).join('')}
       </ul>
     `;
@@ -132,7 +138,13 @@
     if (code) code.textContent = meta.code;
     wrap.querySelectorAll('.bv-lang-dd-opt').forEach(o => {
       o.classList.toggle('active', o.dataset.lang === lang);
+      o.setAttribute('aria-current', o.dataset.lang === lang ? 'true' : 'false');
     });
+    const lbl = LABEL[lang] || 'Language';
+    const trg = wrap.querySelector('.bv-lang-dd-trigger');
+    if (trg) trg.setAttribute('aria-label', meta.code + ', ' + lbl + ': ' + meta.name);
+    const mn = wrap.querySelector('.bv-lang-dd-menu');
+    if (mn) mn.setAttribute('aria-label', lbl);
   }
 
   function init() {
@@ -207,6 +219,7 @@
       e.stopPropagation();
       const isOpen = menu.classList.toggle('open');
       trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if (isOpen) { const a = menu.querySelector('.bv-lang-dd-opt.active') || menu.querySelector('.bv-lang-dd-opt'); if (a) setTimeout(() => a.focus({ preventScroll: true }), 30); }
     });
 
     dropdown.querySelectorAll('.bv-lang-dd-opt').forEach(opt => {
@@ -220,7 +233,15 @@
         try { localStorage.setItem('preferredLang', lang); } catch(e){}
         menu.classList.remove('open');
         trigger.setAttribute('aria-expanded', 'false');
+        trigger.focus({ preventScroll: true });
       });
+    });
+    // chiude il menu quando il fuoco esce (Tab oltre l'ultima lingua)
+    dropdown.addEventListener('focusout', (e) => {
+      if (menu.classList.contains('open') && e.relatedTarget && !dropdown.contains(e.relatedTarget)) {
+        menu.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
     });
 
     document.addEventListener('click', (e) => {
@@ -234,6 +255,7 @@
       if (e.key === 'Escape' && menu.classList.contains('open')) {
         menu.classList.remove('open');
         trigger.setAttribute('aria-expanded', 'false');
+        trigger.focus({ preventScroll: true });
       }
     });
 
