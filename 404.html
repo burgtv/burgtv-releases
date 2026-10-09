@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#08070d">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<title>Page not found · BurgTV</title>
+<meta name="description" content="This page does not exist. Go back to BurgTV downloads, the home page or sign in.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#B94A8E">
+<script>/* lingua prima del primo disegno */(function(){try{var L=/^(it|en|de|es|fr|pt|tr|nl|pl|ru|ar)$/,m=document.cookie.match(/burgtv_lang=([^;]+)/),l=m&&m[1];if(!L.test(l||'')){try{l=localStorage.getItem('preferredLang')||localStorage.getItem('lang')}catch(e){}}if(!L.test(l||'')){l=((navigator.languages&&navigator.languages[0])||navigator.language||'').slice(0,2).toLowerCase()}if(!L.test(l||''))l='en';var h=document.documentElement;h.lang=l==='pt'?'pt-BR':l;h.dir=l==='ar'?'rtl':'ltr';window.__nfLang=l}catch(e){}})();</script>
+<script src="/assets/js/lang-dropdown.js?v=20261010-1" defer></script>
+<script src="/assets/js/bv-chrome.js?v=20261010-1" defer></script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{min-height:100vh;background:#08070d;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;line-height:1.6}
+  body:not(.bv-chrome){padding-top:61px}
+  @media(max-width:720px){body:not(.bv-chrome){padding-top:55px}}
+#bv-nav-r{min-width:92px;justify-content:flex-end}.bv-brand img,.bv-foot-brand img,.bv-sidebar-header img{aspect-ratio:206/108}
+  .lang-switch{position:fixed;top:1rem;right:1rem;display:flex;gap:.4rem;opacity:0}
+  .lang-switch button{background:transparent;border:0;color:#9ca3af;font:inherit;font-size:13px;padding:4px 6px}
+  .bv-lang-dd{position:fixed!important;top:1rem!important;right:1rem!important;width:max-content!important;z-index:1000}
+  .nf{min-height:62vh;display:flex;align-items:center;justify-content:center;padding:56px 16px}
+  .nf-box{max-width:680px;text-align:center}
+  .nf-kicker{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#e06bb0;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px 14px;margin-bottom:18px}
+  .nf h1{font-size:clamp(30px,5vw,48px);line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
+  .nf-text{color:#a7a5ba;font-size:17px;line-height:1.7;margin-bottom:26px}
+  .nf-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .nf-cta a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;border-radius:13px;font-weight:650;font-size:15px;text-decoration:none;color:#fff}
+  .nf-cta .pri{background:linear-gradient(135deg,#c04d93 0%,#a3468a 50%,#7B4397 100%);box-shadow:0 10px 28px -8px rgba(185,74,142,.55)}
+  .nf-cta .sec{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.045)}
+  .nf-cta a:hover{filter:brightness(1.1)}
+  .nf-cta a:focus-visible{outline:2px solid #e06bb0;outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="lang-switch" aria-hidden="true"><button id="btn-it" tabindex="-1">IT</button><button id="btn-en" class="active" tabindex="-1">EN</button><button id="btn-de" tabindex="-1">DE</button><button id="btn-es" tabindex="-1">ES</button><button id="btn-fr" tabindex="-1">FR</button><button id="btn-pt" tabindex="-1">PT</button><button id="btn-tr" tabindex="-1">TR</button><button id="btn-nl" tabindex="-1">NL</button><button id="btn-pl" tabindex="-1">PL</button><button id="btn-ru" tabindex="-1">RU</button><button id="btn-ar" tabindex="-1">AR</button></div>
+<section class="nf">
+  <div class="nf-box">
+    <p class="nf-kicker" data-nf="k">Error 404</p>
+    <h1 data-nf="t">Page not found</h1>
+    <p class="nf-text" data-nf="x">The address may have changed or no longer exists. Here is where to start again:</p>
+    <div class="nf-cta">
+      <a class="pri" href="/" data-nf="dl">BurgTV downloads</a>
+      <a class="sec" id="nfHome" href="https://burgtv.com/en/" data-nf="home">Home</a>
+      <a class="sec" href="https://app.burgtv.com/login.html" data-nf="login">Sign in</a>
+    </div>
+  </div>
+</section>
+<script>
+  (function(){
+    var NF = {
+      it:{k:'Errore 404',t:'Pagina non trovata',x:'L’indirizzo potrebbe essere cambiato o non esistere più. Ecco da dove ripartire:',dl:'Download di BurgTV',home:'Home',login:'Accedi',title:'Pagina non trovata · BurgTV'},
+      en:{k:'Error 404',t:'Page not found',x:'The address may have changed or no longer exists. Here is where to start again:',dl:'BurgTV downloads',home:'Home',login:'Sign in',title:'Page not found · BurgTV'},
+      de:{k:'Fehler 404',t:'Seite nicht gefunden',x:'Die Adresse hat sich vielleicht geändert oder existiert nicht mehr. Hier geht es weiter:',dl:'BurgTV-Downloads',home:'Startseite',login:'Anmelden',title:'Seite nicht gefunden · BurgTV'},
+      es:{k:'Error 404',t:'Página no encontrada',x:'Es posible que la dirección haya cambiado o ya no exista. Puedes seguir desde aquí:',dl:'Descargas de BurgTV',home:'Inicio',login:'Iniciar sesión',title:'Página no encontrada · BurgTV'},
+      fr:{k:'Erreur 404',t:'Page introuvable',x:'L’adresse a peut-être changé ou n’existe plus. Voici par où reprendre :',dl:'Téléchargements BurgTV',home:'Accueil',login:'Se connecter',title:'Page introuvable · BurgTV'},
+      pt:{k:'Erro 404',t:'Página não encontrada',x:'O endereço pode ter mudado ou não existir mais. Você pode continuar a partir daqui:',dl:'Downloads do BurgTV',home:'Início',login:'Entrar',title:'Página não encontrada · BurgTV'},
+      tr:{k:'Hata 404',t:'Sayfa bulunamadı',x:'Adres değişmiş ya da artık mevcut olmayabilir. Buradan devam edebilirsin:',dl:'BurgTV indirmeleri',home:'Ana sayfa',login:'Giriş yap',title:'Sayfa bulunamadı · BurgTV'},
+      nl:{k:'Fout 404',t:'Pagina niet gevonden',x:'Het adres is misschien gewijzigd of bestaat niet meer. Hier kun je verder:',dl:'BurgTV-downloads',home:'Home',login:'Inloggen',title:'Pagina niet gevonden · BurgTV'},
+      pl:{k:'Błąd 404',t:'Nie znaleziono strony',x:'Adres mógł się zmienić lub już nie istnieje. Możesz zacząć stąd:',dl:'Pobieranie BurgTV',home:'Strona główna',login:'Zaloguj się',title:'Nie znaleziono strony · BurgTV'},
+      ru:{k:'Ошибка 404',t:'Страница не найдена',x:'Возможно, адрес изменился или больше не существует. Продолжить можно отсюда:',dl:'Загрузка BurgTV',home:'Главная',login:'Войти',title:'Страница не найдена · BurgTV'},
+      ar:{k:'خطأ 404',t:'الصفحة غير موجودة',x:'ربما تغيّر العنوان أو لم يعد موجودًا. يمكنك المتابعة من هنا:',dl:'تنزيلات BurgTV',home:'الرئيسية',login:'تسجيل الدخول',title:'الصفحة غير موجودة · BurgTV'}
+    };
+    function set(l){
+      if(!NF[l]) l='en';
+      var d=NF[l];
+      document.querySelectorAll('[data-nf]').forEach(function(e){var v=d[e.getAttribute('data-nf')];if(v)e.textContent=v;});
+      document.getElementById('nfHome').href='https://burgtv.com/'+(l==='it'?'':l+'/');
+      document.querySelectorAll('.lang-switch button').forEach(function(b){b.classList.toggle('active',b.id==='btn-'+l);});
+      document.documentElement.lang=l==='pt'?'pt-BR':l; document.documentElement.dir=l==='ar'?'rtl':'ltr';
+      document.title=d.title;
+      try{localStorage.setItem('preferredLang',l);}catch(e){}
+      var dom=location.hostname.endsWith('.burgtv.com')?'; domain=.burgtv.com':'';
+      document.cookie='burgtv_lang='+l+'; max-age=31536000; path=/'+dom+'; SameSite=Lax';
+    }
+    Object.keys(NF).forEach(function(l){var b=document.getElementById('btn-'+l);if(b)b.addEventListener('click',function(){set(l);});});
+    set(window.__nfLang||'en');
+  })();
+</script>
+</body>
+</html>
