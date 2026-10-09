@@ -16,7 +16,7 @@
     de: { flag: '🇩🇪', code: 'DE', name: 'Deutsch' },
     es: { flag: '🇪🇸', code: 'ES', name: 'Español' },
     fr: { flag: '🇫🇷', code: 'FR', name: 'Français' },
-    pt: { flag: '🇵🇹', code: 'PT', name: 'Português' },
+    pt: { flag: '🇧🇷', code: 'PT', name: 'Português' },
     tr: { flag: '🇹🇷', code: 'TR', name: 'Türkçe' },
     nl: { flag: '🇳🇱', code: 'NL', name: 'Nederlands' },
     pl: { flag: '🇵🇱', code: 'PL', name: 'Polski' },
