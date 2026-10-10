@@ -93,7 +93,7 @@ const ld = [
     applicationSubCategory: 'IPTV player', operatingSystem: 'Fire OS, Android TV, Google TV',
     softwareVersion: tv.version_name, downloadUrl: 'https://download.burgtv.com/tv.apk', installUrl: 'https://download.burgtv.com/',
     inLanguage: LANGS_APP,
-    featureList: ['M3U playlists, Xtream Codes, Jellyfin and Portal sources', 'TV guide (EPG, XMLTV)', 'Timeshift up to 60 minutes (Premium)', 'Multi-View up to 4 channels (Premium)', 'Recordings (Premium)', 'Profiles and Kids profile (Premium)', 'Parental controls with PIN'],
+    featureList: ['M3U playlists, Xtream Codes, Jellyfin and Portal sources', 'TV guide (EPG, XMLTV)', 'Timeshift up to 120 minutes (Premium)', 'Multi-View up to 4 channels (Premium)', 'Recordings (Premium)', 'Profiles and Kids profile (Premium)', 'Parental controls with PIN'],
     offers: [
       { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'CHF' },
       { '@type': 'Offer', name: 'Premium yearly (7 days free), 5 devices across TV and Android', price: '8.90', priceCurrency: 'CHF', url: 'https://app.burgtv.com/register.html' },

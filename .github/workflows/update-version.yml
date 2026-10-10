@@ -34,7 +34,15 @@ jobs:
         id: apk
         run: |
           # Get the APK download URL from release assets
-          APK_URL=$(echo '${{ toJson(github.event.release.assets) }}' | jq -r '.[] | select(.name | endswith(".apk")) | .browser_download_url' | head -1)
+          # Dalla 1.3.7 la release ha anche gli APK per architettura (burgtv-<v>-arm64-v8a-release.apk,
+          # burgtv-<v>-armeabi-v7a-release.apk): download_url resta l'APK UNIVERSALE
+          # (burgtv-<v>-release.apk), l'unico che leggono le versioni fino alla 1.3.6
+          ASSETS='${{ toJson(github.event.release.assets) }}'
+          echo "$ASSETS" > /tmp/assets.json
+          APK_URL=$(jq -r '.[] | select(.name | test("^burgtv-[0-9.]+-release\\.apk$")) | .browser_download_url' /tmp/assets.json | head -1)
+          if [ -z "$APK_URL" ]; then
+            APK_URL=$(jq -r '.[] | select((.name | endswith(".apk")) and (.name | test("arm64-v8a|armeabi-v7a|-play") | not)) | .browser_download_url' /tmp/assets.json | head -1)
+          fi
           if [ -z "$APK_URL" ]; then
             # Fallback to standard naming
             APK_URL="https://github.com/${{ github.repository }}/releases/download/${{ github.event.release.tag_name }}/app-release.apk"
@@ -60,6 +68,20 @@ jobs:
           echo "Extracted sha256: $SHA256"
           echo "sha256=$SHA256" >> $GITHUB_OUTPUT
 
+      - name: APK per architettura
+        run: |
+          # "downloads": ABI -> {url, sha256}; la 1.3.7+ sceglie l'APK della propria architettura
+          # (Build.SUPPORTED_ABIS) e verifica l'impronta; senza split resta {} (si usa l'universale)
+          echo '{}' > /tmp/downloads.json
+          for ABI in arm64-v8a armeabi-v7a; do
+            URL=$(jq -r --arg abi "$ABI" '.[] | select(.name | endswith("-" + $abi + "-release.apk")) | .browser_download_url' /tmp/assets.json | head -1)
+            [ -z "$URL" ] && continue
+            curl -sL -o /tmp/split.apk "$URL"
+            SUM=$(sha256sum /tmp/split.apk | cut -d' ' -f1)
+            jq --arg abi "$ABI" --arg url "$URL" --arg sha "$SUM" '. + {($abi): {url: $url, sha256: $sha}}' /tmp/downloads.json > /tmp/d.json && mv /tmp/d.json /tmp/downloads.json
+          done
+          cat /tmp/downloads.json
+
       - name: Update version.json
         run: |
           cat > version.json << 'EOF'
@@ -76,6 +98,10 @@ jobs:
 
           # Pretty print the JSON
           cat version.json | jq '.' > version_temp.json && mv version_temp.json version.json
+
+          if [ "$(jq 'length' /tmp/downloads.json)" -gt 0 ]; then
+            jq --slurpfile d /tmp/downloads.json '. + {downloads: $d[0]}' version.json > version_temp.json && mv version_temp.json version.json
+          fi
 
           # Novita' per lingua (dalla 1.3.5 l'app mostra il testo nella sua lingua, ripiego su
           # "changelog"): se c'e' changelog_i18n.json lo si unisce a version.json
