@@ -96,8 +96,8 @@ const ld = [
     featureList: ['M3U playlists, Xtream Codes, Jellyfin and Portal sources', 'TV guide (EPG, XMLTV)', 'Timeshift up to 60 minutes (Premium)', 'Multi-View up to 4 channels (Premium)', 'Recordings (Premium)', 'Profiles and Kids profile (Premium)', 'Parental controls with PIN'],
     offers: [
       { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'CHF' },
-      { '@type': 'Offer', name: 'Premium yearly (7 days free)', price: '8.90', priceCurrency: 'CHF', url: 'https://app.burgtv.com/register.html' },
-      { '@type': 'Offer', name: 'Premium lifetime', price: '25.90', priceCurrency: 'CHF', url: 'https://app.burgtv.com/register.html' },
+      { '@type': 'Offer', name: 'Premium yearly (7 days free), 5 devices across TV and Android', price: '8.90', priceCurrency: 'CHF', url: 'https://app.burgtv.com/register.html' },
+      { '@type': 'Offer', name: 'Premium lifetime, 5 devices across TV and Android', price: '25.90', priceCurrency: 'CHF', url: 'https://app.burgtv.com/register.html' },
     ],
     publisher: ORG,
   },
@@ -105,7 +105,14 @@ const ld = [
     '@context': 'https://schema.org', '@type': 'MobileApplication', '@id': 'https://burgtv.com/#app-android',
     name: 'BurgTV for Android phones and tablets', applicationCategory: 'MultimediaApplication', operatingSystem: 'Android',
     softwareVersion: mobVer, downloadUrl: 'https://download.burgtv.com/mobile.apk', installUrl: 'https://download.burgtv.com/',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'CHF' }, publisher: ORG,
+    // Stesse regole Gratis/Premium della TV; limiti attivi dal 10/11/2026 (fino ad allora tutto incluso);
+    // la licenza del sito vale su 5 dispositivi in totale tra TV e Android.
+    offers: [
+      { '@type': 'Offer', name: 'Free (all features included until 2026-11-10, then the same limits as the TV)', price: '0', priceCurrency: 'CHF' },
+      { '@type': 'Offer', name: 'Premium yearly (7 days free), 5 devices across TV and Android', price: '8.90', priceCurrency: 'CHF', url: 'https://app.burgtv.com/register.html' },
+      { '@type': 'Offer', name: 'Premium lifetime, 5 devices across TV and Android', price: '25.90', priceCurrency: 'CHF', url: 'https://app.burgtv.com/register.html' },
+    ],
+    publisher: ORG,
   },
   {
     '@context': 'https://schema.org', '@type': 'MobileApplication', '@id': 'https://burgtv.com/#app-ios',
