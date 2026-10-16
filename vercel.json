@@ -23,17 +23,17 @@
     },
     {
       "source": "/mobile.apk",
-      "destination": "https://github.com/burgtv/burgtv-mobile-releases/releases/download/android-v1.2.3/burgtv-mobile-1.2.3-release.apk",
+      "destination": "https://github.com/burgtv/burgtv-mobile-releases/releases/download/android-v1.2.4/burgtv-mobile-1.2.4-release.apk",
       "permanent": false
     },
     {
       "source": "/mobile",
-      "destination": "https://github.com/burgtv/burgtv-mobile-releases/releases/download/android-v1.2.3/burgtv-mobile-1.2.3-release.apk",
+      "destination": "https://github.com/burgtv/burgtv-mobile-releases/releases/download/android-v1.2.4/burgtv-mobile-1.2.4-release.apk",
       "permanent": false
     },
     {
       "source": "/android",
-      "destination": "https://github.com/burgtv/burgtv-mobile-releases/releases/download/android-v1.2.3/burgtv-mobile-1.2.3-release.apk",
+      "destination": "https://github.com/burgtv/burgtv-mobile-releases/releases/download/android-v1.2.4/burgtv-mobile-1.2.4-release.apk",
       "permanent": false
     },
     {
