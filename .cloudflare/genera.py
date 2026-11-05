@@ -107,7 +107,7 @@ def build(key, repo=None, base=None):
     """repo/base: in GitHub Actions (opzione B) il repo e' la cartella del checkout e base la cartella di uscita."""
     project, repo0, skip = SITES[key]
     repo = repo or repo0
-    skip = skip + [".github", ".cloudflare", "_pages"]
+    skip = skip + [".github", ".cloudflare", "_pages", ".vercelignore"]
     base = base or os.path.join(HERE, "staging", project)
     pub = os.path.join(base, "public")
     shutil.rmtree(base, ignore_errors=True)
