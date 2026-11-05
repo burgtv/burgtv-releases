@@ -1,0 +1,38 @@
+# Pubblicazione automatica su Cloudflare Pages a ogni push su main (opzione B, preparata il 06/11/2026).
+# La cartella pubblicata e' generata da .cloudflare/genera.py partendo da vercel.json (unica fonte delle regole,
+# la stessa che usano gli script di rilascio), poi si controlla il dominio vero con .cloudflare/verifica_dominio.py.
+# Token: secret CLOUDFLARE_API_TOKEN del repo, con il solo permesso "Account - Cloudflare Pages - Edit".
+# Copia di ~/BurgTV-site/cloudflare-pages/workflow_template.yml (KIND=download, progetto burgtv-download): non modificare a mano.
+name: Pubblica su Cloudflare Pages
+on:
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: ["Update version.json on Release"]
+    types: [completed]
+  workflow_dispatch:
+concurrency:
+  group: cloudflare-pages-burgtv-download
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  pubblica:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_ACCOUNT_ID: 9339f623ed71fc06a05c875321fd0e45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Genera _redirects, _headers (e Function) da vercel.json
+        run: python3 .cloudflare/genera.py --ci download . _pages
+      - name: Pubblica su Cloudflare Pages (burgtv-download)
+        working-directory: _pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx --yes wrangler@4.158.0 pages deploy public --project-name burgtv-download --branch main --commit-hash ${{ github.sha }} --commit-dirty=true
+      - name: Controllo sul dominio vero
+        run: python3 .cloudflare/verifica_dominio.py download --repo . --redirects _pages/public/_redirects --tentativi 10
