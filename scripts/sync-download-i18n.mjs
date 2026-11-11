@@ -116,7 +116,7 @@ const ld = [
   },
   {
     '@context': 'https://schema.org', '@type': 'MobileApplication', '@id': 'https://burgtv.com/#app-ios',
-    name: 'BurgTV for iPhone and iPad', applicationCategory: 'MultimediaApplication', operatingSystem: 'iOS, iPadOS',
+    name: 'BurgTV for iPhone, iPad, Mac and Apple Vision Pro', applicationCategory: 'MultimediaApplication', operatingSystem: 'iOS, iPadOS, macOS (Apple silicon), visionOS',
     softwareVersion: ios.version, downloadUrl: ios.url || 'https://apps.apple.com/app/id6761636987',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'CHF', description: 'Free download with a 7-day trial; Premium is an in-app purchase in the App Store' },
     publisher: ORG,
